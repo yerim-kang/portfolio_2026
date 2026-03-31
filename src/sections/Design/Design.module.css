@@ -1,0 +1,70 @@
+/**
+ * Design Section Styles
+ * 디자인 섹션 스타일
+ */
+
+.design {
+  position: relative;
+  padding: var(--section-padding) 0;
+  background: var(--color-background);
+  min-height: 50vh;
+}
+
+.designContent {
+  width: 100%;
+}
+
+/* 디자인 그리드 */
+.designGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-top: 4rem;
+  list-style: none;
+  padding: 0;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.designCardWrapper {
+  width: 100%;
+  list-style: none;
+}
+
+/* Design 카드 이미지 배경색 - 그라디언트 제거 */
+.designCardWrapper :global(.cardImage) {
+  background: #ffffff !important;
+}
+
+/* Design 카드 placeholder 그라디언트 제거 */
+.designCardWrapper :global(.imagePlaceholder) {
+  background: #ffffff !important;
+  background-image: none !important;
+}
+
+/* 태블릿 반응형 */
+@media (max-width: 1023px) {
+  .design {
+    padding: 4rem 0;
+  }
+
+  .designGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
+}
+
+/* 모바일 반응형 */
+@media (max-width: 768px) {
+  .design {
+    padding: 3rem 0;
+  }
+
+  .designGrid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+}
+

@@ -1,0 +1,43 @@
+/**
+ * SectionTitle Component Styles
+ * 섹션 타이틀의 일관된 스타일링
+ */
+
+.title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+  color: var(--color-black);
+}
+
+.title--large {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+}
+
+.title--medium {
+  font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+}
+
+.title--small {
+  font-size: clamp(1.125rem, 2vw, 1.5rem);
+}
+
+.subtitle {
+  font-family: var(--font-base);
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--color-black);
+  opacity: 0.7;
+  margin-top: 1rem;
+}
+
+.title--center {
+  text-align: center;
+}
+
+.title--accent {
+  color: var(--color-primary);
+}
+

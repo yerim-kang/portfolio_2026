@@ -1,0 +1,59 @@
+/**
+ * Projects Section Styles
+ * 프로젝트 섹션 스타일
+ */
+
+.projects {
+  position: relative;
+  padding: var(--section-padding) 0;
+  background: var(--color-background);
+  min-height: 50vh;
+}
+
+.projectsContent {
+  width: 100%;
+}
+
+/* 프로젝트 그리드 */
+.projectsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-top: 4rem;
+  list-style: none;
+  padding: 0;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.projectCardWrapper {
+  width: 100%;
+  list-style: none;
+}
+
+/* 태블릿 반응형 */
+@media (max-width: 1023px) {
+  .projects {
+    padding: 4rem 0;
+  }
+
+  .projectsGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
+}
+
+/* 모바일 반응형 */
+@media (max-width: 768px) {
+  .projects {
+    padding: 3rem 0;
+  }
+
+  .projectsGrid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+}
+

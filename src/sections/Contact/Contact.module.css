@@ -1,0 +1,312 @@
+/**
+ * Contact Section Styles
+ * 연락처 섹션 스타일
+ */
+
+.contact {
+  position: relative;
+  padding: var(--section-padding) 0 3rem;
+  background: var(--color-background);
+  min-height: auto;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* 배경 애니메이션 */
+.contact::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(
+    circle at 30% 50%,
+    rgba(15, 26, 242, 0.05) 0%,
+    transparent 50%
+  ),
+  radial-gradient(
+    circle at 70% 50%,
+    rgba(139, 192, 0, 0.05) 0%,
+    transparent 50%
+  );
+  animation: contactBgMove 20s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.contact::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    linear-gradient(
+      45deg,
+      transparent 30%,
+      rgba(15, 26, 242, 0.02) 50%,
+      transparent 70%
+    );
+  animation: contactBgShift 15s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+
+@keyframes contactBgMove {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(10%, 10%) scale(1.1);
+  }
+}
+
+@keyframes contactBgShift {
+  0%, 100% {
+    transform: translateX(0) translateY(0);
+    opacity: 0.5;
+  }
+  50% {
+    transform: translateX(5%) translateY(-5%);
+    opacity: 0.8;
+  }
+}
+
+.contactContent {
+  width: 100%;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.contactTitleWrapper {
+  margin-bottom: 3rem;
+}
+
+.contactMain {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* 메일 주소 섹션 - 크게 표시 */
+.emailSection {
+  margin: 2rem 0;
+}
+
+.emailLink {
+  font-size: clamp(2rem, 5vw, 4rem);
+  font-weight: 700;
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  display: inline-block;
+  letter-spacing: -0.02em;
+  position: relative;
+  opacity: 0; /* 초기 상태 - GSAP로 애니메이션 */
+  visibility: visible;
+}
+
+.emailLink::after {
+  content: '';
+  position: absolute;
+  bottom: 0.2em;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: var(--color-accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.emailLink:hover {
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  transform: translateY(-2px);
+}
+
+.emailLink:hover::after {
+  display: none;
+}
+
+/* 설명 텍스트 */
+.contactText {
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  line-height: 1.8;
+  color: var(--color-black);
+  opacity: 0.7;
+  max-width: 600px;
+  margin: 0;
+  opacity: 0; /* 초기 상태 - GSAP로 애니메이션 */
+  visibility: visible;
+}
+
+/* 소셜 링크 */
+.socialLinks {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 2rem;
+  opacity: 0; /* 초기 상태 - GSAP로 애니메이션 */
+  visibility: visible;
+}
+
+.socialLink {
+  display: inline-block;
+  transition: all 0.3s ease;
+  opacity: 0.7;
+}
+
+.socialLink:hover {
+  opacity: 1;
+  transform: translateY(-3px) scale(1.1);
+}
+
+.socialLink img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  display: block;
+}
+
+/* Copyright */
+.copyright {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.copyright p {
+  font-size: 0.875rem;
+  color: var(--color-black);
+  opacity: 0.5;
+  margin: 0;
+}
+
+/* 연락처 정보 */
+.contactInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 2rem;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 16px;
+  backdrop-filter: blur(10px);
+  width: 100%;
+  max-width: 500px;
+  opacity: 0; /* 초기 상태 - GSAP로 애니메이션 */
+  visibility: visible;
+}
+
+.infoItem {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.infoLabel {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-black);
+  opacity: 0.6;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.infoValue {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--color-black);
+}
+
+/* 태블릿 반응형 */
+@media (max-width: 1023px) {
+  .contact {
+    padding: 4rem 0;
+    min-height: auto;
+  }
+
+  .contactTitleWrapper {
+    margin-bottom: 2rem;
+  }
+
+  .contactMain {
+    gap: 1.5rem;
+  }
+
+  .emailSection {
+    margin: 1.5rem 0;
+  }
+
+  .contactInfo {
+    padding: 1.5rem;
+    gap: 1.25rem;
+  }
+}
+
+/* 모바일 반응형 */
+@media (max-width: 768px) {
+  .contact {
+    padding: 3rem 0;
+  }
+
+  .contactTitleWrapper {
+    margin-bottom: 1.5rem;
+  }
+
+  .contactMain {
+    gap: 1.25rem;
+  }
+
+  .emailSection {
+    margin: 1rem 0;
+  }
+
+  .emailLink {
+    font-size: clamp(1.5rem, 6vw, 2.5rem);
+    word-break: break-all;
+  }
+
+  .contactText {
+    font-size: 0.9375rem;
+    padding: 0 1rem;
+  }
+
+  .socialLinks {
+    gap: 1.25rem;
+    margin-top: 1.5rem;
+  }
+
+  .socialLink img {
+    width: 36px;
+    height: 36px;
+  }
+
+  .copyright {
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+  }
+
+  .contactInfo {
+    padding: 1.25rem;
+    gap: 1rem;
+  }
+
+  .infoValue {
+    font-size: 1rem;
+  }
+}
+

@@ -1,0 +1,97 @@
+/**
+ * Button Component Styles
+ * 재사용 가능한 버튼 컴포넌트
+ */
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.875rem 1.75rem;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  border: none;
+  outline: none;
+  white-space: nowrap;
+}
+
+/* Variants */
+.button--primary {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  box-shadow: 0 4px 20px rgba(0, 70, 255, 0.3);
+}
+
+.button--primary:hover {
+  background-color: var(--color-accent);
+  color: var(--color-black);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 30px rgba(255, 144, 19, 0.4);
+}
+
+.button--secondary {
+  background-color: transparent;
+  color: var(--color-primary);
+  border: 2px solid var(--color-primary);
+}
+
+.button--secondary:hover {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  transform: translateY(-2px);
+}
+
+.button--outline {
+  background-color: transparent;
+  color: var(--color-black);
+  border: 2px solid var(--color-black);
+}
+
+.button--outline:hover {
+  background-color: var(--color-black);
+  color: var(--color-white);
+  transform: translateY(-2px);
+}
+
+/* Sizes */
+.button--small {
+  padding: 0.625rem 1.25rem;
+  font-size: 0.875rem;
+}
+
+.button--medium {
+  padding: 0.875rem 1.75rem;
+  font-size: 1rem;
+}
+
+.button--large {
+  padding: 1.125rem 2.25rem;
+  font-size: 1.125rem;
+}
+
+/* States */
+.button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.button--fullWidth {
+  width: 100%;
+}
+
+/* Icon */
+.buttonIcon {
+  transition: transform 0.3s ease;
+}
+
+.button:hover .buttonIcon {
+  transform: translateX(4px);
+}
+
