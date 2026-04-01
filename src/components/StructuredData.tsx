@@ -15,7 +15,8 @@ export const StructuredData = () => {
     '@type': 'Person',
     name: '강예림',
     jobTitle: '웹 퍼블리셔',
-    description: '사용자의 니즈를 읽고 구조로 풀어내는 웹 퍼블리셔. HTML, CSS, JavaScript, React, GSAP, Figma 기반 반응형 웹 퍼블리싱과 UI/UX 구현 전문.',
+    description:
+      '반응형 웹 퍼블리싱과 Figma·Cursor AI·이미지 생성 AI(ImageFX 등) 활용 경험을 가진 웹 퍼블리셔. HTML, CSS, JavaScript, React, GSAP 기반 UI 구현.',
     url: siteUrl,
     image: ogImageUrl,
     sameAs: [
@@ -33,6 +34,8 @@ export const StructuredData = () => {
       'React',
       'GSAP',
       'Figma',
+      'Cursor AI',
+      '이미지 생성 AI',
       '반응형 웹 디자인',
     ],
   };

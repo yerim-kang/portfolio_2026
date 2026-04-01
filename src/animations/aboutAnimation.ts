@@ -30,7 +30,7 @@ export const createAboutAnimation = (targets: AboutAnimationTargets) => {
   const tl = gsap.timeline({
     scrollTrigger: {
       trigger: container,
-      start: 'top 80%',
+      start: 'top 92%',
       end: 'bottom 20%',
       toggleActions: 'play none none reverse',
     },
@@ -38,6 +38,13 @@ export const createAboutAnimation = (targets: AboutAnimationTargets) => {
       ease: 'power3.out',
     },
   });
+
+  const contentParagraphs = contentText
+    ? (Array.from(contentText.querySelectorAll('p')) as HTMLElement[])
+    : [];
+  const educationItems = education
+    ? (Array.from(education.querySelectorAll('[class*="educationItem"]')) as HTMLElement[])
+    : [];
 
   // 초기 상태 설정
   if (image) {
@@ -52,8 +59,14 @@ export const createAboutAnimation = (targets: AboutAnimationTargets) => {
   if (contentText) {
     gsap.set(contentText, { autoAlpha: 0, y: 20 });
   }
+  if (contentParagraphs.length > 0) {
+    gsap.set(contentParagraphs, { autoAlpha: 0, y: 14 });
+  }
   if (education) {
     gsap.set(education, { autoAlpha: 0, y: 20 });
+  }
+  if (educationItems.length > 0) {
+    gsap.set(educationItems, { autoAlpha: 0, y: 12 });
   }
   if (button) {
     gsap.set(button, { autoAlpha: 0, y: 20 });
@@ -65,7 +78,16 @@ export const createAboutAnimation = (targets: AboutAnimationTargets) => {
       autoAlpha: 1,
       x: 0,
       scale: 1,
-      duration: 0.8,
+      duration: 0.6,
+    });
+    // 텍스트 등장과 겹치도록 이미지의 부유 모션은 별도 트윈으로 실행
+    gsap.to(image, {
+      y: -6,
+      duration: 1.8,
+      ease: 'sine.inOut',
+      repeat: 1,
+      yoyo: true,
+      delay: 0.2,
     });
   }
 
@@ -75,9 +97,9 @@ export const createAboutAnimation = (targets: AboutAnimationTargets) => {
       {
         autoAlpha: 1,
         y: 0,
-        duration: 0.6,
+        duration: 0.45,
       },
-      '-=0.3'
+      '<'
     );
   }
 
@@ -87,9 +109,9 @@ export const createAboutAnimation = (targets: AboutAnimationTargets) => {
       {
         autoAlpha: 1,
         y: 0,
-        duration: 0.6,
+        duration: 0.4,
       },
-      '-=0.4'
+      '-=0.2'
     );
   }
 
@@ -99,9 +121,21 @@ export const createAboutAnimation = (targets: AboutAnimationTargets) => {
       {
         autoAlpha: 1,
         y: 0,
-        duration: 0.7,
+        duration: 0.32,
       },
-      '-=0.3'
+      '-=0.2'
+    );
+  }
+  if (contentParagraphs.length > 0) {
+    tl.to(
+      contentParagraphs,
+      {
+        autoAlpha: 1,
+        y: 0,
+        duration: 0.28,
+        stagger: 0.09,
+      },
+      '-=0.05'
     );
   }
 
@@ -111,9 +145,21 @@ export const createAboutAnimation = (targets: AboutAnimationTargets) => {
       {
         autoAlpha: 1,
         y: 0,
-        duration: 0.6,
+        duration: 0.38,
       },
-      '-=0.4'
+      '-=0.25'
+    );
+  }
+  if (educationItems.length > 0) {
+    tl.to(
+      educationItems,
+      {
+        autoAlpha: 1,
+        y: 0,
+        duration: 0.3,
+        stagger: 0.08,
+      },
+      '-=0.08'
     );
   }
 
@@ -123,9 +169,9 @@ export const createAboutAnimation = (targets: AboutAnimationTargets) => {
       {
         autoAlpha: 1,
         y: 0,
-        duration: 0.5,
+        duration: 0.35,
       },
-      '-=0.3'
+      '-=0.12'
     );
   }
 

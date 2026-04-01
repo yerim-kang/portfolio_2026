@@ -17,7 +17,7 @@ import banner1Img from '../../assets/images/banner1.png';
 import banner2Img from '../../assets/images/banner2.png';
 import banner3Img from '../../assets/images/banner3.png';
 
-// 디자인 데이터
+// 디자인 데이터 — 상세는 /project/design 탭 페이지에서 확인 (tab 쿼리로 섹션 이동)
 const designs = [
   {
     id: 1,
@@ -25,7 +25,7 @@ const designs = [
     description: 'ImageFx와 Figma를 이용하여 이모티콘 제작 및 OGQ마켓에 등록',
     tags: ['Figma', 'ImageFx'],
     image: hamsterImg,
-    detailUrl: 'https://dog-mandolin-7f7.notion.site/AI-2fd4be4a7f1c8153b14de6524d709b60?source=copy_link',
+    detailUrl: '/project/design?tab=emoticon',
     figmaUrl: 'https://www.figma.com/design/4v52vD7YlFsaFocsoQ8WfT/%EC%98%88%EB%A6%BC_%EC%97%B0%EC%8A%B5?node-id=698-2006',
   },
   {
@@ -34,7 +34,7 @@ const designs = [
     description: 'Figma로 배너 이미지 제작',
     tags: ['Figma'],
     image: banner1Img,
-    detailUrl: 'https://dog-mandolin-7f7.notion.site/2fe4be4a7f1c809aae95feae87a58d01?source=copy_link',
+    detailUrl: '/project/design?tab=banner-1',
     figmaUrl: 'https://www.figma.com/design/4v52vD7YlFsaFocsoQ8WfT/%EC%98%88%EB%A6%BC_%EC%97%B0%EC%8A%B5?node-id=829-2864',
   },
   {
@@ -43,7 +43,7 @@ const designs = [
     description: 'Figma로 배너 이미지 제작',
     tags: ['Figma'],
     image: banner2Img,
-    detailUrl: 'https://dog-mandolin-7f7.notion.site/2fe4be4a7f1c80daa258d53865d55052?source=copy_link',
+    detailUrl: '/project/design?tab=banner-2',
     figmaUrl: 'https://www.figma.com/design/4v52vD7YlFsaFocsoQ8WfT/%EC%98%88%EB%A6%BC_%EC%97%B0%EC%8A%B5?node-id=829-2864',
   },
   {
@@ -52,7 +52,7 @@ const designs = [
     description: 'Figma로 배너 이미지 제작',
     tags: ['Figma'],
     image: banner3Img,
-    detailUrl: 'https://dog-mandolin-7f7.notion.site/2fe4be4a7f1c8058a619c7bcb46b7c06?source=copy_link',
+    detailUrl: '/project/design?tab=banner-3',
     figmaUrl: 'https://www.figma.com/design/4v52vD7YlFsaFocsoQ8WfT/%EC%98%88%EB%A6%BC_%EC%97%B0%EC%8A%B5?node-id=829-2864',
   },
 ];
@@ -65,20 +65,14 @@ export const Design = () => {
 
   // GSAP 애니메이션
   useGsap(() => {
-    const timer = setTimeout(() => {
-      if (designRef.current) {
-        const validCards = cardRefs.current.filter(Boolean) as HTMLLIElement[];
-        createDesignAnimation({
-          container: designRef.current,
-          title: titleRef.current,
-          cards: validCards,
-        });
-      }
-    }, 200);
-
-    return () => {
-      clearTimeout(timer);
-    };
+    if (designRef.current) {
+      const validCards = cardRefs.current.filter(Boolean) as HTMLLIElement[];
+      createDesignAnimation({
+        container: designRef.current,
+        title: titleRef.current,
+        cards: validCards,
+      });
+    }
   }, { dependencies: [] });
 
   return (

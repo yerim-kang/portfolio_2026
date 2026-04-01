@@ -4,16 +4,14 @@
  */
 
 import { useState, useEffect, useRef } from 'react';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useLocation, useNavigate } from 'react-router-dom';
 import styles from './Header.module.css';
 
-gsap.registerPlugin(ScrollTrigger);
-
 export const Header = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isInHero, setIsInHero] = useState(true);
   const headerRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
@@ -23,28 +21,6 @@ export const Header = () => {
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  // Hero 섹션을 벗어날 때 헤더 스타일 변경
-  useEffect(() => {
-    const heroSection = document.querySelector('#home');
-    if (!heroSection || !headerRef.current) return;
-
-    const scrollTrigger = ScrollTrigger.create({
-      trigger: heroSection,
-      start: 'bottom top',
-      end: 'bottom top',
-      onEnter: () => {
-        setIsInHero(false);
-      },
-      onLeaveBack: () => {
-        setIsInHero(true);
-      },
-    });
-
-    return () => {
-      scrollTrigger.kill();
-    };
   }, []);
 
   const navItems = [
@@ -57,22 +33,39 @@ export const Header = () => {
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+    if (location.pathname !== '/') {
+      navigate('/', { state: { scrollTo: href } });
+      return;
     }
+
+    const element = document.querySelector(href);
+    if (element) element.scrollIntoView({ behavior: 'smooth' });
     setIsMobileMenuOpen(false);
   };
+
+  useEffect(() => {
+    if (location.pathname !== '/') return;
+    const target = (location.state as { scrollTo?: string } | null)?.scrollTo;
+    if (!target) return;
+
+    const timer = setTimeout(() => {
+      const element = document.querySelector(target);
+      if (element) element.scrollIntoView({ behavior: 'smooth' });
+      navigate(location.pathname, { replace: true, state: null });
+    }, 50);
+
+    return () => clearTimeout(timer);
+  }, [location.pathname, location.state, navigate]);
 
   return (
     <header 
       ref={headerRef}
-      className={`${styles.header} ${isScrolled ? styles.scrolled : ''} ${isInHero ? styles.darkHeader : ''}`}
+      className={`${styles.header} ${isScrolled ? styles.scrolled : ''}`}
     >
       <div className={styles.headerContainer}>
         {/* Logo */}
         <a href="#home" className={styles.logo} onClick={(e) => handleNavClick(e, '#home')}>
-          Publisher<span className={styles.logoSlash}>/</span>
+          yerim&apos;s<span className={styles.logoAccent}> portfolio</span>
         </a>
 
         {/* Desktop Navigation */}

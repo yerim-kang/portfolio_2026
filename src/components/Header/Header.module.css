@@ -21,52 +21,10 @@
   box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
 }
 
-/* KV 영역에서 어두운 톤 헤더 */
-.header.darkHeader {
-  background: rgba(0, 0, 0, 0.7);
-  backdrop-filter: blur(10px);
-  border-bottom-color: rgba(255, 255, 255, 0.1);
-}
-
-.header.darkHeader .logo {
-  color: var(--color-white);
-}
-
-.header.darkHeader .logo:hover {
-  color: var(--color-accent);
-}
-
-.header.darkHeader .navLink {
-  color: rgba(255, 255, 255, 0.9);
-}
-
-.header.darkHeader .navLink:hover {
-  color: var(--color-accent);
-}
-
-.header.darkHeader .navLink::after {
-  background: var(--color-accent);
-}
-
-.header.darkHeader .ctaButton {
-  background: var(--color-accent);
-  color: var(--color-black);
-}
-
-.header.darkHeader .ctaButton:hover {
-  background: var(--color-white);
-  color: var(--color-black);
-  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.3);
-}
-
-.header.darkHeader .mobileToggle span {
-  background: var(--color-white);
-}
-
 .headerContainer {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 1.5rem clamp(1.5rem, 5vw, 3rem);
+  padding: 1rem clamp(1.5rem, 5vw, 3rem);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -75,21 +33,22 @@
 
 /* Logo */
 .logo {
-  font-size: 1.5rem;
+  font-family: var(--font-base);
+  font-size: 1.35rem;
   font-weight: 700;
   color: var(--color-black);
   text-decoration: none;
   transition: color 0.3s ease;
   white-space: nowrap;
+  letter-spacing: -0.02em;
 }
 
 .logo:hover {
   color: var(--color-primary);
 }
 
-.logoSlash {
+.logoAccent {
   color: var(--color-primary);
-  font-weight: 400;
 }
 
 /* Desktop Navigation */
@@ -145,7 +104,7 @@
   background: var(--color-accent);
   color: var(--color-black);
   transform: translateY(-2px);
-  box-shadow: 0 4px 15px rgba(139, 192, 0, 0.4);
+  box-shadow: 0 4px 15px rgba(107, 191, 116, 0.3);
 }
 
 /* Mobile Menu Toggle */
@@ -231,7 +190,7 @@
 .mobileCtaButton:hover {
   background: var(--color-accent);
   color: var(--color-black);
-  box-shadow: 0 4px 15px rgba(139, 192, 0, 0.4);
+  box-shadow: 0 4px 15px rgba(107, 191, 116, 0.3);
 }
 
 /* Tablet & Mobile */
@@ -253,7 +212,7 @@
 /* Mobile */
 @media (max-width: 768px) {
   .headerContainer {
-    padding: 1rem 1.5rem;
+    padding: 0.75rem 1.5rem;
   }
 
   .logo {

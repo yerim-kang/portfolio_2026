@@ -21,22 +21,16 @@ export const Contact = () => {
 
   // GSAP 애니메이션
   useGsap(() => {
-    const timer = setTimeout(() => {
-      if (contactRef.current) {
-        createContactAnimation({
-          container: contactRef.current,
-          title: titleRef.current,
-          email: emailRef.current,
-          text: textRef.current,
-          info: null,
-          github: socialLinksRef.current,
-        });
-      }
-    }, 200);
-
-    return () => {
-      clearTimeout(timer);
-    };
+    if (contactRef.current) {
+      createContactAnimation({
+        container: contactRef.current,
+        title: titleRef.current,
+        email: emailRef.current,
+        text: textRef.current,
+        info: null,
+        github: socialLinksRef.current,
+      });
+    }
   }, { dependencies: [] });
 
   const handleEmailClick = (e: React.MouseEvent<HTMLAnchorElement>) => {

@@ -6,6 +6,17 @@
 
 import { Home } from './pages/Home';
 import { StructuredData } from './components/StructuredData';
+import { Header } from './components/Header';
+import { Routes, Route } from 'react-router-dom';
+import {
+  ZerowayDetail,
+  AIHealthMateDetail,
+  BbangsamLandingDetail,
+  HangyeolLandingDetail,
+  CursorAIDetail,
+  DesignDetail,
+  TodoListDetail,
+} from './pages/project';
 import './styles/reset.css';
 import './styles/global.css';
 
@@ -20,10 +31,20 @@ function App() {
           width: '100%',
           margin: 0,
           padding: 0,
-          backgroundColor: '#F2F2F2'
+          backgroundColor: '#F6F8F1'
         }}
       >
-        <Home />
+        <Header />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/project/zeroway" element={<ZerowayDetail />} />
+          <Route path="/project/ai-health-mate" element={<AIHealthMateDetail />} />
+          <Route path="/project/bbangsam-landing" element={<BbangsamLandingDetail />} />
+          <Route path="/project/hangyeol-landing" element={<HangyeolLandingDetail />} />
+          <Route path="/project/cursor-ai" element={<CursorAIDetail />} />
+          <Route path="/project/design" element={<DesignDetail />} />
+          <Route path="/project/todo-list" element={<TodoListDetail />} />
+        </Routes>
       </div>
     </>
   );

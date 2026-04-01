@@ -26,7 +26,7 @@ export const createProjectsAnimation = (targets: ProjectsAnimationTargets) => {
   const tl = gsap.timeline({
     scrollTrigger: {
       trigger: container,
-      start: 'top 80%',
+      start: 'top 92%',
       end: 'bottom 20%',
       toggleActions: 'play none none reverse',
     },

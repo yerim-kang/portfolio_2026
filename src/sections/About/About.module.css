@@ -131,7 +131,7 @@
 /* Education 영역 */
 .educationSection {
   padding: 0.875rem;
-  background: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.855);
   border-radius: 12px;
   backdrop-filter: blur(10px);
 }
@@ -206,8 +206,8 @@
 
 .moreLink:hover {
   transform: translateY(-3px);
-  color: #8BC000;
-  text-shadow: 0 2px 8px rgba(139, 192, 0, 0.3);
+  color: #6BBF74;
+  text-shadow: 0 2px 8px rgba(107, 191, 116, 0.24);
 }
 
 .moreLink:hover .arrowIcon {

@@ -1,6 +1,5 @@
 /**
- * Skills Section Styles
- * 스킬 섹션 스타일
+ * Skills — 카테고리별 분류 레이아웃
  */
 
 .skills {
@@ -13,146 +12,129 @@
   width: 100%;
 }
 
-/* Swiper 래퍼 */
-.skillsSwiperWrapper {
-  margin-top: 4rem;
-  overflow: hidden;
-  padding: 2rem 0;
+.categories {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  margin-top: 2.5rem;
 }
 
-.skillsSwiper {
-  width: 100%;
-  overflow: visible;
+.categoryBlock {
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid var(--color-line);
+  border-radius: 16px;
 }
 
-.skillSlide {
-  width: auto !important;
+.categoryTitle {
+  margin: 0 0 1.25rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--color-line);
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.iconGrid {
   display: flex;
-  align-items: center;
-  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
-/* 스킬 아이템 */
-.skillItem {
+.iconItem {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1rem;
-  padding: 1.5rem;
-  background: rgba(255, 255, 255, 0.6);
-  border-radius: 16px;
-  backdrop-filter: blur(10px);
-  transition: all 0.3s ease;
-  cursor: pointer;
-  width: 140px;
-  min-width: 140px;
-  opacity: 1;
+  gap: 0.65rem;
+  min-width: 0;
 }
 
-.skillItem:hover {
-  background: rgba(255, 255, 255, 0.9);
-  transform: translateY(-8px);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-}
-
-/* 스킬 아이콘 */
-.skillIcon {
+.iconFrame {
   position: relative;
-  width: 64px;
-  height: 64px;
+  width: 100%;
+  aspect-ratio: 1;
+  max-width: 72px;
+  margin: 0 auto;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: transform 0.3s ease;
+  padding: 0.65rem;
+  border-radius: 18px;
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-.skillItem:hover .skillIcon {
-  transform: scale(1.1);
+.iconItem:hover .iconFrame {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
 }
 
-.skillIcon img {
+.iconFrame img {
   width: 100%;
   height: 100%;
   object-fit: contain;
-  filter: grayscale(0);
-  transition: filter 0.3s ease;
 }
 
-.skillItem:hover .skillIcon img {
-  filter: grayscale(0);
-}
-
-/* 아이콘 플레이스홀더 */
-.iconPlaceholder {
+.iconFallback {
   display: none;
   width: 100%;
   height: 100%;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
-  border-radius: 12px;
-  color: var(--color-white);
-  font-size: 1.5rem;
+  font-size: 1.35rem;
   font-weight: 700;
-}
-
-/* 스킬 이름 */
-.skillName {
-  font-size: 0.9375rem;
-  font-weight: 600;
-  color: var(--color-black);
-  text-align: center;
-  transition: color 0.3s ease;
-}
-
-.skillItem:hover .skillName {
   color: var(--color-primary);
+  background: rgba(107, 191, 116, 0.08);
+  border-radius: 12px;
 }
 
-/* 태블릿 반응형 */
-@media (max-width: 1023px) {
-  .skillsSwiperWrapper {
-    margin-top: 3rem;
-    padding: 1.5rem 0;
-  }
-
-  .skillItem {
-    width: 120px;
-    min-width: 120px;
-    padding: 1.25rem;
-  }
-
-  .skillIcon {
-    width: 56px;
-    height: 56px;
-  }
+.iconLabel {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #444;
+  text-align: center;
+  letter-spacing: 0.02em;
 }
 
-/* 모바일 반응형 */
 @media (max-width: 768px) {
   .skills {
     padding: 4rem 0;
   }
 
-  .skillsSwiperWrapper {
+  .categories {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
     margin-top: 2rem;
-    padding: 1rem 0;
   }
 
-  .skillItem {
-    width: 100px;
-    min-width: 100px;
-    padding: 1rem;
+  .categoryBlock {
+    padding: 1.25rem;
+  }
+
+  .categoryTitle {
+    font-size: 0.8rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.6rem;
+  }
+
+  .iconGrid {
     gap: 0.75rem;
   }
 
-  .skillIcon {
-    width: 48px;
-    height: 48px;
+  .iconFrame {
+    max-width: 56px;
+    border-radius: 12px;
+    padding: 0.45rem;
   }
 
-  .skillName {
-    font-size: 0.875rem;
+  .iconLabel {
+    font-size: 0.7rem;
   }
 }
-

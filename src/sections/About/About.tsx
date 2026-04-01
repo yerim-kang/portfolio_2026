@@ -7,7 +7,7 @@ import { useRef } from 'react';
 import { Container } from '../../components/Container';
 import { useGsap } from '../../hooks/useGsap';
 import { createAboutAnimation } from '../../animations/aboutAnimation';
-import emojiImg from '../../assets/images/emoji.png';
+import aboutmeImg from '../../assets/images/aboutme.jpg';
 import styles from './About.module.css';
 
 export const About = () => {
@@ -21,23 +21,17 @@ export const About = () => {
 
   // 진입 애니메이션 (ScrollTrigger)
   useGsap(() => {
-    const timer = setTimeout(() => {
-      if (aboutRef.current) {
-        createAboutAnimation({
-          container: aboutRef.current,
-          image: imageRef.current,
-          title: titleRef.current,
-          description: descriptionRef.current,
-          contentText: contentTextRef.current,
-          education: educationRef.current,
-          button: buttonRef.current,
-        });
-      }
-    }, 100);
-
-    return () => {
-      clearTimeout(timer);
-    };
+    if (aboutRef.current) {
+      createAboutAnimation({
+        container: aboutRef.current,
+        image: imageRef.current,
+        title: titleRef.current,
+        description: descriptionRef.current,
+        contentText: contentTextRef.current,
+        education: educationRef.current,
+        button: buttonRef.current,
+      });
+    }
   }, { dependencies: [] });
 
   return (
@@ -49,7 +43,7 @@ export const About = () => {
             <div ref={imageRef} className={styles.aboutImage}>
               <div className={styles.imageWrapper}>
                 <img 
-                  src={emojiImg} 
+                  src={aboutmeImg} 
                   alt="웹 퍼블리셔 강예림 프로필 이미지" 
                   className={styles.profileImg}
                   loading="lazy"
@@ -71,19 +65,16 @@ export const About = () => {
               </h2>
               
               <p ref={descriptionRef} className={styles.aboutDescription}>
-                사용자의 니즈를 읽고 구조로 풀어내는 퍼블리셔 강예림 입니다
+                사용자 흐름을 구조로 풀어내는 웹 퍼블리셔 강예림입니다.
               </p>
 
               <div ref={contentTextRef} className={styles.aboutContentText}>
                 <p>
-                  사용자 흐름과 정보 구조를 고려한 화면 설계, 반응형 웹 퍼블리싱, 그리고 유지보수를 고려한 구조화된 코드 작성을 중요하게 생각합니다.
+                Figma로 와이어프레임과 디자인을 작업합니다. HTML·CSS(SCSS)·JavaScript(jQuery)로 반응형 UI를 구현하고 SEO최적화를 진행합니다.
+                Cursor AI와 ImageFX 등 이미지 생성 AI를 활용하여 시각 소재를 보완한 경험이 있습니다.
                 </p>
                 <p>
-                  HTML, CSS(SCSS), JavaScript를 기반으로 UI 인터랙션을 구현하며, Figma를 활용한 와이어프레임·프로토타입 제작과 컴포넌트 관리 경험을 보유하고 있습니다.
-                </p>
-                <p>
-                  작업 과정에서는 꼼꼼한 정리와 문서화를 통해 협업 효율을 높이고, 디자인 의도를 정확하게 구현하는 데 집중합니다.
-                  사용자와 팀 모두에게 이해하기 쉬운 결과물을 만드는 것을 목표로 성장하고 있습니다.
+                  유지보수에 읽기 쉬운 마크업과 문서화를 중시하고, 디자인 의도에 맞는 화면 구현을 목표로 합니다.
                 </p>
               </div>
 

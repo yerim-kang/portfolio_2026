@@ -6,7 +6,6 @@
  * 향후 About, Works, Skills, Contact 섹션 추가 예정
  */
 
-import { Header } from '../components/Header';
 import { Hero } from '../sections/Hero';
 import { About } from '../sections/About';
 import { Skills } from '../sections/Skills';
@@ -17,7 +16,6 @@ import { Contact } from '../sections/Contact';
 export const Home = () => {
   return (
     <>
-      <Header />
       <Hero />
       <About />
       <Skills />

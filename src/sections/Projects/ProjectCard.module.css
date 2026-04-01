@@ -127,7 +127,7 @@
   background-color: var(--color-primary);
   color: var(--color-white);
   transform: translateY(-2px);
-  box-shadow: 0 4px 15px rgba(15, 26, 242, 0.4);
+  box-shadow: 0 4px 15px rgba(107, 191, 116, 0.36);
 }
 
 .siteButton {
@@ -139,7 +139,7 @@
   background-color: var(--color-accent);
   color: var(--color-black);
   transform: translateY(-2px);
-  box-shadow: 0 4px 15px rgba(184, 217, 198, 0.4);
+  box-shadow: 0 4px 15px rgba(107, 191, 116, 0.28);
 }
 
 .detailButton {
@@ -192,36 +192,14 @@
   color: var(--color-primary);
   background: linear-gradient(
     135deg,
-    rgba(15, 26, 242, 0.12) 0%,
-    rgba(184, 217, 198, 0.35) 100%
+    rgba(107, 191, 116, 0.14) 0%,
+    rgba(217, 242, 190, 0.55) 100%
   );
-  border: 1.5px solid rgba(15, 26, 242, 0.35);
+  border: 1.5px solid rgba(107, 191, 116, 0.3);
   border-radius: 999px;
-  box-shadow: 0 2px 8px rgba(15, 26, 242, 0.12);
+  box-shadow: 0 2px 8px rgba(107, 191, 116, 0.14);
   opacity: 1;
   vertical-align: middle;
-}
-
-.cardTags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  margin-top: auto;
-  list-style: none;
-  padding: 0;
-  margin-left: 0;
-  margin-right: 0;
-}
-
-.tag {
-  padding: 0.375rem 0.75rem;
-  background: rgba(15, 26, 242, 0.1);
-  color: var(--color-primary);
-  font-size: 0.8125rem;
-  font-weight: 600;
-  border-radius: 20px;
-  border: 1px solid rgba(15, 26, 242, 0.2);
-  list-style: none;
 }
 
 /* 모바일 반응형 */
