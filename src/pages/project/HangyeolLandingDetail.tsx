@@ -1,4 +1,4 @@
-import hangyeolImg from '../../assets/images/hangyeol.jpg';
+import hangyeolImg from '../../assets/images/hangyeol.mp4';
 import { ProjectDetailLayout } from './ProjectDetailLayout';
 
 export const HangyeolLandingDetail = () => {

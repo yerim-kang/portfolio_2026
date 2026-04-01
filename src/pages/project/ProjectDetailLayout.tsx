@@ -26,13 +26,28 @@ export const ProjectDetailLayout = ({
   figmaUrl,
   sections,
 }: ProjectDetailLayoutProps) => {
+  const isVideo = image.toLowerCase().endsWith('.mp4');
+
   return (
     <main className={styles.detailPage}>
       <div className={styles.detailInner}>
         <Link to="/" className={styles.backLink}>← 메인으로 돌아가기</Link>
         <h1 className={styles.title}>{title}</h1>
         <p className={styles.description}>{description}</p>
-        <img className={styles.heroImage} src={image} alt={`${title} 대표 이미지`} />
+        {isVideo ? (
+          <video
+            className={styles.heroImage}
+            src={image}
+            autoPlay
+            muted
+            loop
+            playsInline
+            controls={false}
+            aria-label={`${title} 대표 영상`}
+          />
+        ) : (
+          <img className={styles.heroImage} src={image} alt={`${title} 대표 이미지`} />
+        )}
 
         {planningImage && (
           <section className={styles.planSection} aria-labelledby="project-plan-image-heading">

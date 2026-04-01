@@ -189,15 +189,15 @@
   font-weight: 700;
   letter-spacing: -0.02em;
   line-height: 1.2;
-  color: var(--color-primary);
+  color: #2a5c7f;
   background: linear-gradient(
     135deg,
-    rgba(107, 191, 116, 0.14) 0%,
-    rgba(217, 242, 190, 0.55) 100%
+    rgba(143, 211, 255, 0.28) 0%,
+    rgba(232, 247, 255, 0.92) 100%
   );
-  border: 1.5px solid rgba(107, 191, 116, 0.3);
+  border: 1.5px solid rgba(143, 211, 255, 0.7);
   border-radius: 999px;
-  box-shadow: 0 2px 8px rgba(107, 191, 116, 0.14);
+  box-shadow: 0 2px 10px rgba(95, 170, 222, 0.24);
   opacity: 1;
   vertical-align: middle;
 }

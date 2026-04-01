@@ -34,7 +34,7 @@ const designs = [
     description: 'Figma로 배너 이미지 제작',
     tags: ['Figma'],
     image: banner1Img,
-    detailUrl: '/project/design?tab=banner-1',
+    detailUrl: '/project/design?tab=banner',
     figmaUrl: 'https://www.figma.com/design/4v52vD7YlFsaFocsoQ8WfT/%EC%98%88%EB%A6%BC_%EC%97%B0%EC%8A%B5?node-id=829-2864',
   },
   {
@@ -43,7 +43,7 @@ const designs = [
     description: 'Figma로 배너 이미지 제작',
     tags: ['Figma'],
     image: banner2Img,
-    detailUrl: '/project/design?tab=banner-2',
+    detailUrl: '/project/design?tab=banner',
     figmaUrl: 'https://www.figma.com/design/4v52vD7YlFsaFocsoQ8WfT/%EC%98%88%EB%A6%BC_%EC%97%B0%EC%8A%B5?node-id=829-2864',
   },
   {
@@ -52,7 +52,7 @@ const designs = [
     description: 'Figma로 배너 이미지 제작',
     tags: ['Figma'],
     image: banner3Img,
-    detailUrl: '/project/design?tab=banner-3',
+    detailUrl: '/project/design?tab=banner',
     figmaUrl: 'https://www.figma.com/design/4v52vD7YlFsaFocsoQ8WfT/%EC%98%88%EB%A6%BC_%EC%97%B0%EC%8A%B5?node-id=829-2864',
   },
 ];

@@ -4,6 +4,7 @@
  */
 
 import { useRef } from 'react';
+import { Link } from 'react-router-dom';
 import { Container } from '../../components/Container';
 import { SectionTitle } from '../../components/SectionTitle';
 import { useGsap } from '../../hooks/useGsap';
@@ -215,7 +216,7 @@ export const Projects = () => {
               Cursor AI를 활용해 기획·구현 속도를 높인 프로젝트입니다.
             </p>
             <ul className={`${styles.projectsGrid} ${styles.projectsGridTight}`}>
-              {cursorAiProjects.map((project, index) => (
+              {cursorAiProjects.slice(0, 3).map((project, index) => (
                 <li
                   key={project.id}
                   ref={(el) => {
@@ -227,6 +228,11 @@ export const Projects = () => {
                 </li>
               ))}
             </ul>
+            <div className={styles.cursorAiMoreWrap}>
+              <Link to="/project/cursor-ai" className={styles.cursorAiMoreButton}>
+                더보기
+              </Link>
+            </div>
           </div>
         </div>
       </Container>

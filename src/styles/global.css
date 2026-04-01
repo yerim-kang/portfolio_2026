@@ -16,9 +16,11 @@
 
 :root {
   /* Colors */
-  --color-primary: #6BBF74;
-  --color-accent: #D9F2BE;
-  --color-background: #F6F8F1;
+  --color-primary: #8FD14A;
+  --color-accent: #E6F7A8;
+  --color-point-secondary: #8FD3FF;
+  --color-mint: #8FD3FF;
+  --color-background: #E8F7FF;
   --color-white: #FFFFFF;
   --color-black: #000000;
 
@@ -74,6 +76,6 @@ html.lenis {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--color-accent);
+  background: var(--color-mint);
 }
 

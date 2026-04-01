@@ -11,6 +11,7 @@ import { About } from '../sections/About';
 import { Skills } from '../sections/Skills';
 import { Projects } from '../sections/Projects';
 import { Design } from '../sections/Design';
+import { Review } from '../sections/Review';
 import { Contact } from '../sections/Contact';
 
 export const Home = () => {
@@ -21,6 +22,7 @@ export const Home = () => {
       <Skills />
       <Projects />
       <Design />
+      <Review />
       <Contact />
     </>
   );

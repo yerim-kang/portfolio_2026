@@ -1,0 +1,255 @@
+.aboutDetail {
+  padding: 7.5rem 0 4rem;
+  background: #f5f4f0;
+  min-height: 100vh;
+}
+
+.heroSection {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.kicker {
+  display: inline-block;
+  margin: 0 0 0.75rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.title {
+  margin: 0;
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.2;
+  color: var(--color-black);
+}
+
+.lead {
+  max-width: 760px;
+  margin: 1rem auto 0;
+  font-size: clamp(0.95rem, 1.8vw, 1.12rem);
+  line-height: 1.8;
+  color: rgba(0, 0, 0, 0.75);
+}
+
+.lead strong {
+  color: #2f5a16;
+}
+
+/* 2열 레이아웃: 왼쪽 사진 / 오른쪽 콘텐츠 */
+.layout {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+.leftCol {
+  position: sticky;
+  top: 6rem;
+}
+
+.imageWrap {
+  overflow: hidden;
+  border-radius: 18px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  background: #fff;
+}
+
+.imageWrap img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.rightCol {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+/* 공통 카드 블록 */
+.block {
+  padding: 1.25rem 1.4rem;
+  border-radius: 14px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  background: rgba(255, 255, 255, 0.82);
+}
+
+.block h3 {
+  margin: 0 0 0.6rem;
+  font-size: 1.05rem;
+}
+
+.block p {
+  margin: 0;
+  line-height: 1.75;
+  color: rgba(0, 0, 0, 0.82);
+}
+
+/* 연락처 */
+.contactList {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 0.5rem;
+}
+
+.contactList li {
+  line-height: 1.55;
+  color: rgba(0, 0, 0, 0.84);
+}
+
+/* 타임라인 */
+.timelineList {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 0.8rem;
+}
+
+.timelineList li {
+  padding-left: 0.8rem;
+  border-left: 2px solid rgba(143, 209, 74, 0.5);
+}
+
+.period {
+  display: inline-block;
+  margin-bottom: 0.25rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+/* 스킬 카테고리 */
+.skillCategories {
+  display: grid;
+  gap: 0.85rem;
+}
+
+.skillCategoryBlock {
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 12px;
+  padding: 0.85rem;
+  background: rgba(255, 255, 255, 0.88);
+}
+
+.skillCategoryTitle {
+  margin: 0 0 0.65rem;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.skillCategoryGrid {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.45rem;
+}
+
+.skillCard {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.5rem 0.7rem;
+  border-radius: 12px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background: #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.skillCard img {
+  width: 26px;
+  height: 26px;
+  object-fit: contain;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.78);
+  padding: 0.15rem;
+  flex-shrink: 0;
+}
+
+.skillCard span {
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: rgba(0, 0, 0, 0.82);
+}
+
+/* 하단 버튼 */
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.primaryButton,
+.secondaryButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 170px;
+  padding: 0.75rem 1.2rem;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 700;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+}
+
+.primaryButton {
+  background: var(--color-primary);
+  color: #fff;
+}
+
+.primaryButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(132, 188, 78, 0.32);
+}
+
+.secondaryButton {
+  border: 1px solid rgba(0, 0, 0, 0.14);
+  background: rgba(255, 255, 255, 0.92);
+  color: var(--color-black);
+}
+
+.secondaryButton:hover {
+  transform: translateY(-2px);
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+/* 태블릿 이하 → 1열 */
+@media (max-width: 900px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+
+  .leftCol {
+    position: static;
+    max-width: 320px;
+  }
+
+  .skillCategoryGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .aboutDetail {
+    padding-top: 6.5rem;
+  }
+
+  .skillCategoryGrid {
+    grid-template-columns: 1fr;
+  }
+}

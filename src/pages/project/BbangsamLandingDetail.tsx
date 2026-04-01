@@ -1,4 +1,4 @@
-import bbangsamImg from '../../assets/images/bbangsam.jpg';
+import bbangsamImg from '../../assets/images/bbangsam.mp4';
 import { ProjectDetailLayout } from './ProjectDetailLayout';
 
 export const BbangsamLandingDetail = () => {

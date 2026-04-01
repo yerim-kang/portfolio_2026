@@ -1,4 +1,4 @@
-import aihealthmateImg from '../../assets/images/aihealthmate.gif';
+import aihealthmateImg from '../../assets/images/aihealthmate.mp4';
 import { ProjectDetailLayout } from './ProjectDetailLayout';
 
 export const AIHealthMateDetail = () => {

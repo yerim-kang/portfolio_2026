@@ -89,6 +89,12 @@
   gap: 0.9rem;
 }
 
+.galleryGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.9rem;
+}
+
 .compareCard {
   margin: 0;
   padding: 0.7rem;
@@ -125,6 +131,11 @@
   }
 
   .beforeAfterGrid {
+    grid-template-columns: 1fr;
+    gap: 0.7rem;
+  }
+
+  .galleryGrid {
     grid-template-columns: 1fr;
     gap: 0.7rem;
   }

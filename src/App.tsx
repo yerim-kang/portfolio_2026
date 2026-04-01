@@ -5,6 +5,7 @@
  */
 
 import { Home } from './pages/Home';
+import { AboutDetail } from './pages/AboutDetail';
 import { StructuredData } from './components/StructuredData';
 import { Header } from './components/Header';
 import { Routes, Route } from 'react-router-dom';
@@ -31,12 +32,13 @@ function App() {
           width: '100%',
           margin: 0,
           padding: 0,
-          backgroundColor: '#F6F8F1'
+          backgroundColor: '#E8F7FF'
         }}
       >
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/about" element={<AboutDetail />} />
           <Route path="/project/zeroway" element={<ZerowayDetail />} />
           <Route path="/project/ai-health-mate" element={<AIHealthMateDetail />} />
           <Route path="/project/bbangsam-landing" element={<BbangsamLandingDetail />} />

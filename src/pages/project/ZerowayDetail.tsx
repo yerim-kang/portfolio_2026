@@ -1,4 +1,4 @@
-import zerowayGif from '../../assets/images/zeroway.gif';
+import zerowayVideo from '../../assets/images/zeroway.mp4';
 import zerowayPlanImg from '../../assets/images/zeroway_plan.jpg';
 import { ProjectDetailLayout } from './ProjectDetailLayout';
 
@@ -10,7 +10,7 @@ export const ZerowayDetail = () => {
       tags={['HTML', 'CSS', 'JavaScript', 'jQuery', 'Sass', 'AOS', 'Swiper', 'GSAP', 'Figma']}
       period="2025.10.02 ~ 2025.12.18"
       contribution="기획 30%, 디자인 30%, 개발 80%"
-      image={zerowayGif}
+      image={zerowayVideo}
       planningImage={zerowayPlanImg}
       siteUrl="https://zeroway.netlify.app/"
       figmaUrl="https://www.figma.com/design/a9LA8Sb2jt8cBCygKJ1j9p/ZeroWay?node-id=15-95"

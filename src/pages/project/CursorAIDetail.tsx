@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import detailStyles from './ProjectDetail.module.css';
 import styles from './CursorAIDetail.module.css';
 
-import washtowerImg from '../../assets/images/washtower.png';
+import washtowerImg from '../../assets/images/lgwashtower.mp4';
 import openweatherImg from '../../assets/images/openweather.png';
 import salarycalculatorImg from '../../assets/images/salarycalculator.png';
 import imageeditorImg from '../../assets/images/imageeditor.png';
@@ -129,6 +129,7 @@ const tabs: CursorTab[] = [
 export const CursorAIDetail = () => {
   const [activeId, setActiveId] = useState(tabs[0].id);
   const active = tabs.find((t) => t.id === activeId) ?? tabs[0];
+  const isVideo = active.image.toLowerCase().endsWith('.mp4');
 
   return (
     <main className={detailStyles.detailPage}>
@@ -178,11 +179,24 @@ export const CursorAIDetail = () => {
           <p className={styles.panelDescription}>{active.description}</p>
 
           <figure className={detailStyles.heroFigure}>
-            <img
-              className={detailStyles.heroImage}
-              src={active.image}
-              alt={`${active.title} 대표 이미지`}
-            />
+            {isVideo ? (
+              <video
+                className={detailStyles.heroImage}
+                src={active.image}
+                autoPlay
+                muted
+                loop
+                playsInline
+                controls={false}
+                aria-label={`${active.title} 대표 영상`}
+              />
+            ) : (
+              <img
+                className={detailStyles.heroImage}
+                src={active.image}
+                alt={`${active.title} 대표 이미지`}
+              />
+            )}
           </figure>
 
           <div className={detailStyles.rule} role="presentation" />

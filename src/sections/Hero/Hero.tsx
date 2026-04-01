@@ -101,9 +101,11 @@ export const Hero = () => {
   return (
     <section id="home" ref={heroRef} className={styles.hero}>
       <div className={styles.heroWatercolor} aria-hidden="true">
-        <span className={`${styles.blob} ${styles.blob1}`} />
-        <span className={`${styles.blob} ${styles.blob2}`} />
-        <span className={`${styles.blob} ${styles.blob3}`} />
+        <span className={styles.skyGlow} />
+        <span className={`${styles.cloud} ${styles.cloud1}`} />
+        <span className={`${styles.cloud} ${styles.cloud2}`} />
+        <span className={`${styles.cloud} ${styles.cloud3}`} />
+        <span className={`${styles.cloud} ${styles.cloud4}`} />
       </div>
 
       <Container>

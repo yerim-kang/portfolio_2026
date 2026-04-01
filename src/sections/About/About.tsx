@@ -4,6 +4,7 @@
  */
 
 import { useRef } from 'react';
+import { Link } from 'react-router-dom';
 import { Container } from '../../components/Container';
 import { useGsap } from '../../hooks/useGsap';
 import { createAboutAnimation } from '../../animations/aboutAnimation';
@@ -102,16 +103,14 @@ export const About = () => {
                 </div>
               </div>
 
-              <a
+              <Link
                 ref={buttonRef}
-                href="https://dog-mandolin-7f7.notion.site/2b94be4a7f1c8045afafcc146230e00a?source=copy_link"
-                target="_blank"
-                rel="noopener noreferrer"
+                to="/about"
                 className={styles.moreLink}
               >
-                노션으로 더 보기
+                자기소개 더 보기
                 <span className={styles.arrowIcon}>→</span>
-              </a>
+              </Link>
             </div>
           </div>
         </div>

@@ -15,13 +15,31 @@ export const Header = () => {
   const headerRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+    const updateHeaderState = () => {
+      if (location.pathname !== '/') {
+        setIsScrolled(true);
+        return;
+      }
+
+      const heroSection = document.querySelector('#home') as HTMLElement | null;
+      if (!heroSection) {
+        setIsScrolled(window.scrollY > 50);
+        return;
+      }
+
+      const triggerPoint = Math.max(0, heroSection.offsetHeight - 90);
+      setIsScrolled(window.scrollY > triggerPoint);
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+    updateHeaderState();
+    window.addEventListener('scroll', updateHeaderState);
+    window.addEventListener('resize', updateHeaderState);
+
+    return () => {
+      window.removeEventListener('scroll', updateHeaderState);
+      window.removeEventListener('resize', updateHeaderState);
+    };
+  }, [location.pathname]);
 
   const navItems = [
     { label: 'Home', href: '#home' },
@@ -60,7 +78,7 @@ export const Header = () => {
   return (
     <header 
       ref={headerRef}
-      className={`${styles.header} ${isScrolled ? styles.scrolled : ''}`}
+      className={`${styles.header} ${isScrolled || isMobileMenuOpen ? styles.scrolled : ''}`}
     >
       <div className={styles.headerContainer}>
         {/* Logo */}

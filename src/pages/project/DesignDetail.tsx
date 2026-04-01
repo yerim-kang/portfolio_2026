@@ -27,6 +27,7 @@ type DesignTab = {
   figmaUrl?: string;
   beforeImage?: string;
   afterImage?: string;
+  galleryImages?: string[];
   sections: Array<{ title: string; text: string }>;
 };
 
@@ -69,54 +70,21 @@ const tabs: DesignTab[] = [
     ],
   },
   {
-    id: 'banner-1',
-    label: '배너 ①',
-    title: '배너 디자인 (1)',
+    id: 'banner',
+    label: '배너',
+    title: '배너 디자인 모음',
     description: 'Figma로 제작한 프로모션·안내용 배너 이미지입니다.',
     period: '2026.01',
     contribution: '100%',
     tags: ['Figma'],
     image: banner1Img,
+    galleryImages: [banner1Img, banner2Img, banner3Img],
     notionUrl:
       'https://dog-mandolin-7f7.notion.site/2fe4be4a7f1c809aae95feae87a58d01?source=copy_link',
     figmaUrl:
       'https://www.figma.com/design/4v52vD7YlFsaFocsoQ8WfT/%EC%98%88%EB%A6%BC_%EC%97%B0%EC%8A%B5?node-id=829-2864',
     sections: [
-      { title: '기획 단계', text: '배너 노출 목적과 전달 메시지를 먼저 정의하고, 클릭 유도형 시각 위계에 맞춰 카피와 레이아웃 구조를 설계했습니다. 정보 밀도와 가독성을 기준으로 타이포/컬러 방향을 확정한 뒤 시안을 제작했습니다.' },
-    ],
-  },
-  {
-    id: 'banner-2',
-    label: '배너 ②',
-    title: '배너 디자인 (2)',
-    description: 'Figma로 제작한 프로모션·안내용 배너 이미지입니다.',
-    period: '2026.01',
-    contribution: '100%',
-    tags: ['Figma'],
-    image: banner2Img,
-    notionUrl:
-      'https://dog-mandolin-7f7.notion.site/2fe4be4a7f1c80daa258d53865d55052?source=copy_link',
-    figmaUrl:
-      'https://www.figma.com/design/4v52vD7YlFsaFocsoQ8WfT/%EC%98%88%EB%A6%BC_%EC%97%B0%EC%8A%B5?node-id=829-2864',
-    sections: [
-      { title: '기획 단계', text: '시리즈 배너 내 역할 분리를 위해 핵심 메시지 우선순위를 정하고, 공통 톤을 유지하면서 각 배너의 목적이 구분되도록 기획했습니다. 동일 규격에서 변주를 주기 위한 컴포지션 기준을 먼저 세운 뒤 디자인을 진행했습니다.' },
-    ],
-  },
-  {
-    id: 'banner-3',
-    label: '배너 ③',
-    title: '배너 디자인 (3)',
-    description: 'Figma로 제작한 프로모션·안내용 배너 이미지입니다.',
-    period: '2026.01',
-    contribution: '100%',
-    tags: ['Figma'],
-    image: banner3Img,
-    notionUrl:
-      'https://dog-mandolin-7f7.notion.site/2fe4be4a7f1c8058a619c7bcb46b7c06?source=copy_link',
-    figmaUrl:
-      'https://www.figma.com/design/4v52vD7YlFsaFocsoQ8WfT/%EC%98%88%EB%A6%BC_%EC%97%B0%EC%8A%B5?node-id=829-2864',
-    sections: [
-      { title: '기획 단계', text: '브랜드 톤을 유지하면서 시선 집중 구간을 명확히 하기 위해 색 대비와 그래픽 요소의 우선순위를 먼저 정의했습니다. 최종 시안은 메시지 전달 속도와 시각 밸런스를 기준으로 조정했습니다.' },
+      { title: '기획 단계', text: '시리즈 배너의 목적별 역할을 먼저 분류하고, 공통 톤앤매너를 유지한 상태에서 각 배너의 메시지 우선순위를 다르게 설계했습니다. 규격 내에서 카피 가독성과 시선 흐름을 기준으로 레이아웃 변주를 주어 하나의 세트로 완성했습니다.' },
     ],
   },
 ];
@@ -139,6 +107,7 @@ export const DesignDetail = () => {
   }, [searchParams]);
 
   const active = tabs.find((t) => t.id === activeId) ?? tabs[0];
+  const isVideo = active.image.toLowerCase().endsWith('.mp4');
 
   const selectTab = (id: string) => {
     setActiveId(id);
@@ -194,13 +163,28 @@ export const DesignDetail = () => {
           <h2 className={tabStyles.panelTitle}>{active.title}</h2>
           <p className={tabStyles.panelDescription}>{active.description}</p>
 
-          <figure className={detailStyles.heroFigure}>
-            <img
-              className={detailStyles.heroImage}
-              src={active.image}
-              alt={`${active.title} 대표 이미지`}
-            />
-          </figure>
+          {!active.galleryImages && (
+            <figure className={detailStyles.heroFigure}>
+              {isVideo ? (
+                <video
+                  className={detailStyles.heroImage}
+                  src={active.image}
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  controls={false}
+                  aria-label={`${active.title} 대표 영상`}
+                />
+              ) : (
+                <img
+                  className={detailStyles.heroImage}
+                  src={active.image}
+                  alt={`${active.title} 대표 이미지`}
+                />
+              )}
+            </figure>
+          )}
 
           {active.beforeImage && active.afterImage && (
             <section className={tabStyles.beforeAfterSection} aria-label="기존 사이트와 리뉴얼 비교">
@@ -214,6 +198,20 @@ export const DesignDetail = () => {
                   <figcaption className={tabStyles.compareLabel}>After (리뉴얼 디자인)</figcaption>
                   <img src={active.afterImage} alt={`${active.title} 리뉴얼 디자인 화면`} />
                 </figure>
+              </div>
+            </section>
+          )}
+
+          {active.galleryImages && active.galleryImages.length > 0 && (
+            <section className={tabStyles.beforeAfterSection} aria-label="배너 디자인 모음">
+              <h3 className={tabStyles.beforeAfterTitle}>배너 디자인 모음</h3>
+              <div className={tabStyles.galleryGrid}>
+                {active.galleryImages.map((img, index) => (
+                  <figure key={`${img}-${index}`} className={tabStyles.compareCard}>
+                    <figcaption className={tabStyles.compareLabel}>{`Banner ${index + 1}`}</figcaption>
+                    <img src={img} alt={`${active.title} 배너 ${index + 1}`} />
+                  </figure>
+                ))}
               </div>
             </section>
           )}
@@ -269,7 +267,7 @@ export const DesignDetail = () => {
                   rel="noopener noreferrer"
                   className={detailStyles.siteButton}
                 >
-                  사이트 보러가기
+                  {active.id === 'america-yoga' ? '기존 사이트 보러가기' : '사이트 보러가기'}
                 </a>
               )}
               {active.notionUrl && (
