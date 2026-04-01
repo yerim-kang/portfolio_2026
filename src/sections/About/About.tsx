@@ -66,7 +66,8 @@ export const About = () => {
               </h2>
               
               <p ref={descriptionRef} className={styles.aboutDescription}>
-                사용자 흐름을 구조로 풀어내는 웹 퍼블리셔 강예림입니다.
+                사용자 흐름을 구조로 풀어내는{' '}
+                <span className="mona12-kr mona12-bold">웹 퍼블리셔 강예림</span>입니다.
               </p>
 
               <div ref={contentTextRef} className={styles.aboutContentText}>

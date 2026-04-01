@@ -196,6 +196,24 @@
   cursor: pointer;
   margin-top: 1rem;
   margin-left: 0.75rem;
+  position: relative;
+  z-index: 0;
+  width: fit-content;
+}
+
+.moreLink::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0.02em;
+  height: 0.48em;
+  background: rgba(230, 247, 168, 0.85);
+  border-radius: 0.32em;
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.34s cubic-bezier(0.22, 1, 0.36, 1);
+  z-index: -1;
 }
 
 .arrowIcon {
@@ -205,9 +223,11 @@
 }
 
 .moreLink:hover {
-  transform: translateY(-3px);
-  color: #6BBF74;
-  text-shadow: 0 2px 8px rgba(107, 191, 116, 0.24);
+  color: #2f5a16;
+}
+
+.moreLink:hover::before {
+  transform: scaleX(1);
 }
 
 .moreLink:hover .arrowIcon {
@@ -331,8 +351,9 @@
 
   .moreLink {
     margin-top: 1rem;
-    text-align: center;
-    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    display: inline-flex;
   }
 }
 

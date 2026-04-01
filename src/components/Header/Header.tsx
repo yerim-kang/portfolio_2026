@@ -42,21 +42,27 @@ export const Header = () => {
   }, [location.pathname]);
 
   const navItems = [
-    { label: 'Home', href: '#home' },
-    { label: 'About', href: '#about' },
-    { label: 'Skills', href: '#skills' },
-    { label: 'Projects', href: '#projects' },
-    { label: 'Contact', href: '#contact' },
+    { label: 'Home', to: '#home' },
+    { label: 'About', to: '/about' },
+    { label: 'Project', to: '/project/zeroway' },
+    { label: 'Contact', to: '#contact' },
   ];
 
-  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, to: string) => {
     e.preventDefault();
-    if (location.pathname !== '/') {
-      navigate('/', { state: { scrollTo: href } });
+
+    if (!to.startsWith('#')) {
+      navigate(to);
+      setIsMobileMenuOpen(false);
       return;
     }
 
-    const element = document.querySelector(href);
+    if (location.pathname !== '/') {
+      navigate('/', { state: { scrollTo: to } });
+      return;
+    }
+
+    const element = document.querySelector(to);
     if (element) element.scrollIntoView({ behavior: 'smooth' });
     setIsMobileMenuOpen(false);
   };
@@ -90,10 +96,10 @@ export const Header = () => {
         <nav className={styles.nav}>
           {navItems.map((item) => (
             <a
-              key={item.href}
-              href={item.href}
+              key={item.to}
+              href={item.to}
               className={styles.navLink}
-              onClick={(e) => handleNavClick(e, item.href)}
+              onClick={(e) => handleNavClick(e, item.to)}
             >
               {item.label}
             </a>
@@ -125,10 +131,10 @@ export const Header = () => {
       <nav className={`${styles.mobileNav} ${isMobileMenuOpen ? styles.open : ''}`}>
         {navItems.map((item) => (
           <a
-            key={item.href}
-            href={item.href}
+            key={item.to}
+            href={item.to}
             className={styles.mobileNavLink}
-            onClick={(e) => handleNavClick(e, item.href)}
+            onClick={(e) => handleNavClick(e, item.to)}
           >
             {item.label}
           </a>

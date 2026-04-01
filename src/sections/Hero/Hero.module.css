@@ -189,6 +189,7 @@
 .heroName {
   position: relative;
   display: block;
+  font-family: var(--font-display);
   color: #1f4022;
   margin-top: 0.45rem;
   font-size: clamp(2.35rem, 5.7vw, 4.15rem);
