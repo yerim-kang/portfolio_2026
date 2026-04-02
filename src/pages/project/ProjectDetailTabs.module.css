@@ -1,0 +1,82 @@
+.tabsSpacer {
+  padding-top: 4.5rem;
+}
+
+.tabsBar {
+  position: sticky;
+  top: 4.5rem;
+  z-index: 900;
+  margin: 0;
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.07);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+}
+
+.inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0.65rem clamp(1rem, 3vw, 2rem) 0.7rem;
+}
+
+.list {
+  display: flex;
+  justify-content: center;
+  flex-wrap: nowrap;
+  gap: 0.4rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+}
+
+.list::-webkit-scrollbar {
+  height: 4px;
+}
+
+.link {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.45rem 0.9rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #4a4a4a;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background 0.2s ease, color 0.2s ease;
+  flex-shrink: 0;
+}
+
+.link:hover {
+  color: var(--color-primary);
+  background: rgba(143, 209, 74, 0.14);
+}
+
+.linkActive {
+  color: #fff;
+  background: var(--color-primary);
+}
+
+.linkActive:hover {
+  color: #fff;
+  background: var(--color-primary);
+  filter: brightness(1.05);
+}
+
+@media (max-width: 768px) {
+  .tabsSpacer {
+    padding-top: 4.25rem;
+  }
+
+  .tabsBar {
+    top: 4.25rem;
+  }
+
+  .link {
+    font-size: 0.76rem;
+    padding: 0.4rem 0.75rem;
+  }
+}

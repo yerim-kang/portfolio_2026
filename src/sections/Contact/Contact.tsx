@@ -5,7 +5,6 @@
 
 import { useRef } from 'react';
 import { Container } from '../../components/Container';
-import { SectionTitle } from '../../components/SectionTitle';
 import { useGsap } from '../../hooks/useGsap';
 import { createContactAnimation } from '../../animations/contactAnimation';
 import githubImg from '../../assets/images/github.png';
@@ -43,13 +42,8 @@ export const Contact = () => {
       <Container>
         <div className={styles.contactContent}>
           <div ref={titleRef} className={styles.contactTitleWrapper}>
-            <SectionTitle
-              size="large"
-              align="center"
-              subtitle="함께 일할 퍼블리셔를 찾고 계신가요?"
-            >
-              Get In Touch
-            </SectionTitle>
+            <h2 className={styles.contactTitle}>Get In Touch</h2>
+            <p className={styles.contactSubtitle}>함께 일할 퍼블리셔를 찾고 계신가요?</p>
           </div>
 
           <div className={styles.contactMain}>

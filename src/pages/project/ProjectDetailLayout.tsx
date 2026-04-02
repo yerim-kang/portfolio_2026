@@ -1,5 +1,6 @@
-import { Link } from 'react-router-dom';
+import { Link, useOutletContext } from 'react-router-dom';
 import styles from './ProjectDetail.module.css';
+import type { ProjectDetailOutletContext } from './projectDetailOutletContext';
 
 interface ProjectDetailLayoutProps {
   title: string;
@@ -26,10 +27,13 @@ export const ProjectDetailLayout = ({
   figmaUrl,
   sections,
 }: ProjectDetailLayoutProps) => {
+  const { projectTabs } = useOutletContext<ProjectDetailOutletContext>() ?? {};
   const isVideo = image.toLowerCase().endsWith('.mp4');
 
   return (
-    <main className={styles.detailPage}>
+    <main
+      className={`${styles.detailPage} ${projectTabs ? styles.detailPageTabbed : ''}`}
+    >
       <div className={styles.detailInner}>
         <Link to="/" className={styles.backLink}>← 메인으로 돌아가기</Link>
         <h1 className={styles.title}>{title}</h1>

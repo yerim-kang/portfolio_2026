@@ -6,7 +6,7 @@
 .about {
   position: relative;
   padding: 3rem 0;
-  background: var(--color-background);
+  background: #fff;
   min-height: 100vh;
   display: flex;
   align-items: center;
@@ -104,9 +104,9 @@
   gap: 0.75rem;
   margin-bottom: 1rem;
   padding: 1rem;
-  background: rgba(255, 255, 255, 0.5);
+  background: #fafafa;
   border-radius: 12px;
-  backdrop-filter: blur(10px);
+  border: 1px solid #eee;
 }
 
 .infoItem {
@@ -131,9 +131,9 @@
 /* Education 영역 */
 .educationSection {
   padding: 0.875rem;
-  background: rgba(255, 255, 255, 0.855);
+  background: #fafafa;
   border-radius: 12px;
-  backdrop-filter: blur(10px);
+  border: 1px solid #eee;
 }
 
 .educationTitle {
@@ -208,7 +208,7 @@
   right: 0;
   bottom: 0.02em;
   height: 0.48em;
-  background: rgba(230, 247, 168, 0.85);
+  background: rgba(26, 26, 26, 0.08);
   border-radius: 0.32em;
   transform: scaleX(0);
   transform-origin: left center;
@@ -223,7 +223,7 @@
 }
 
 .moreLink:hover {
-  color: #2f5a16;
+  color: #1a1a1a;
 }
 
 .moreLink:hover::before {

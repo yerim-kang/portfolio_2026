@@ -8,8 +8,10 @@ import { Home } from './pages/Home';
 import { AboutDetail } from './pages/AboutDetail';
 import { StructuredData } from './components/StructuredData';
 import { Header } from './components/Header';
+import { ScrollToTop } from './components/ScrollToTop';
 import { Routes, Route } from 'react-router-dom';
 import {
+  ProjectDetailShell,
   ZerowayDetail,
   AIHealthMateDetail,
   BbangsamLandingDetail,
@@ -24,6 +26,7 @@ import './styles/global.css';
 function App() {
   return (
     <>
+      <ScrollToTop />
       <StructuredData />
       <div 
         className="App" 
@@ -32,20 +35,22 @@ function App() {
           width: '100%',
           margin: 0,
           padding: 0,
-          backgroundColor: '#E8F7FF'
+          backgroundColor: '#fff'
         }}
       >
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<AboutDetail />} />
-          <Route path="/project/zeroway" element={<ZerowayDetail />} />
-          <Route path="/project/ai-health-mate" element={<AIHealthMateDetail />} />
-          <Route path="/project/bbangsam-landing" element={<BbangsamLandingDetail />} />
-          <Route path="/project/hangyeol-landing" element={<HangyeolLandingDetail />} />
-          <Route path="/project/cursor-ai" element={<CursorAIDetail />} />
-          <Route path="/project/design" element={<DesignDetail />} />
-          <Route path="/project/todo-list" element={<TodoListDetail />} />
+          <Route path="/project" element={<ProjectDetailShell />}>
+            <Route path="zeroway" element={<ZerowayDetail />} />
+            <Route path="ai-health-mate" element={<AIHealthMateDetail />} />
+            <Route path="bbangsam-landing" element={<BbangsamLandingDetail />} />
+            <Route path="hangyeol-landing" element={<HangyeolLandingDetail />} />
+            <Route path="cursor-ai" element={<CursorAIDetail />} />
+            <Route path="design" element={<DesignDetail />} />
+            <Route path="todo-list" element={<TodoListDetail />} />
+          </Route>
         </Routes>
       </div>
     </>

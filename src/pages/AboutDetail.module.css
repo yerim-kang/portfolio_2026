@@ -11,8 +11,8 @@
 
 .profileCard {
   display: flex;
-  align-items: flex-start;
-  gap: 2.5rem;
+  align-items: center;
+  gap: 3rem;
   padding: 2.5rem;
   background: #fff;
   border-radius: 24px;
@@ -21,9 +21,9 @@
 
 .profileImage {
   flex-shrink: 0;
-  width: 200px;
-  height: 200px;
-  border-radius: 20px;
+  width: clamp(300px, 32vw, 480px);
+  height: clamp(300px, 32vw, 480px);
+  border-radius: 24px;
   overflow: hidden;
 }
 
@@ -186,6 +186,38 @@
   letter-spacing: 0.06em;
 }
 
+.skillsLead {
+  margin: -0.5rem 0 1.75rem;
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: #555;
+}
+
+.skillGroups {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.skillGroup {
+  padding-top: 1.5rem;
+  border-top: 1px solid #eee;
+}
+
+.skillGroup:first-child {
+  padding-top: 0;
+  border-top: none;
+}
+
+.skillGroupTitle {
+  margin: 0 0 1rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #1a1a1a;
+}
+
 .skillGrid {
   display: flex;
   flex-wrap: wrap;
@@ -211,15 +243,87 @@
 }
 
 .skillItem img {
-  width: 20px;
-  height: 20px;
+  width: 22px;
+  height: 22px;
   object-fit: contain;
+  flex-shrink: 0;
 }
 
 .skillItem span {
   font-size: 0.82rem;
   font-weight: 600;
   color: #333;
+}
+
+/* ===== SEO 섹션 ===== */
+.seoSection {
+  margin-bottom: 3rem;
+  padding: 2rem;
+  background: #fff;
+  border-radius: 24px;
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.03);
+}
+
+.seoLead {
+  margin: 0 0 1.75rem;
+  font-size: 0.9rem;
+  line-height: 1.75;
+  color: #555;
+}
+
+.seoGrid {
+  display: grid;
+  grid-template-columns: repeat(1fr);
+  gap: 1.25rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.seoCard {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 1.25rem;
+  background: #fafafa;
+  border-radius: 16px;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.seoCardImageWrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
+  padding: 1.25rem 1.5rem;
+  /* background: #f0f0f0; */
+  border-radius: 12px;
+  /* border: 1px solid #e5e5e5; */
+}
+
+.seoCardImage {
+  display: block;
+  width: 100%;
+  /* max-width: min(100%, 500px); */
+  /* height: auto; */
+  /* max-height: 240px; */
+  object-fit: cover;
+  object-position: center;
+}
+
+.seoCardTitle {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  letter-spacing: -0.02em;
+}
+
+.seoCardDesc {
+  margin: 0;
+  font-size: 0.82rem;
+  line-height: 1.65;
+  color: #666;
 }
 
 /* ===== 하단 버튼 ===== */
@@ -269,6 +373,15 @@
   .infoGrid {
     grid-template-columns: 1fr;
   }
+
+  .profileCard {
+    gap: 2rem;
+  }
+
+  .profileImage {
+    width: clamp(260px, 48vw, 400px);
+    height: clamp(260px, 48vw, 400px);
+  }
 }
 
 @media (max-width: 768px) {
@@ -285,8 +398,9 @@
   }
 
   .profileImage {
-    width: 160px;
-    height: 160px;
+    width: min(88vw, 400px);
+    height: min(88vw, 400px);
+    max-width: 100%;
   }
 
   .profileInfo {
@@ -316,6 +430,25 @@
 
   .skillItem span {
     font-size: 0.78rem;
+  }
+
+  .seoGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .seoCardImageWrap {
+    min-height: 180px;
+    padding: 1.1rem;
+  }
+
+  .seoCardImage {
+    max-width: 100%;
+    max-height: 200px;
+    min-width: 0;
+  }
+
+  .skillGroups {
+    gap: 1.5rem;
   }
 
   .actions {

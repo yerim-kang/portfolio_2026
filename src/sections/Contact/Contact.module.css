@@ -6,60 +6,11 @@
 .contact {
   position: relative;
   padding: var(--section-padding) 0 3rem;
-  background:
-    linear-gradient(
-      180deg,
-      rgba(232, 247, 255, 0.92) 0%,
-      rgba(220, 245, 255, 0.95) 45%,
-      rgba(220, 245, 210, 0.96) 70%,
-      rgba(210, 240, 190, 0.98) 100%
-    );
+  background: #1a1a1a;
   min-height: auto;
   display: flex;
   align-items: center;
   overflow: hidden;
-}
-
-/* 하늘빛 하이라이트 */
-.contact::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(circle at 20% 18%, rgba(255, 255, 255, 0.58), rgba(255, 255, 255, 0) 42%),
-    radial-gradient(circle at 78% 24%, rgba(255, 255, 255, 0.44), rgba(255, 255, 255, 0) 38%);
-  pointer-events: none;
-  z-index: 0;
-}
-
-/* 둥글둥글 잔디밭 레이어 */
-.contact::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 30%;
-  background:
-    radial-gradient(ellipse 120% 70% at 8% 100%, rgba(160, 210, 130, 0.7) 0%, transparent 55%),
-    radial-gradient(ellipse 90% 60% at 25% 100%, rgba(180, 220, 140, 0.65) 0%, transparent 50%),
-    radial-gradient(ellipse 100% 80% at 45% 100%, rgba(150, 205, 125, 0.7) 0%, transparent 55%),
-    radial-gradient(ellipse 80% 55% at 62% 100%, rgba(175, 215, 135, 0.65) 0%, transparent 48%),
-    radial-gradient(ellipse 110% 65% at 80% 100%, rgba(165, 212, 130, 0.68) 0%, transparent 52%),
-    radial-gradient(ellipse 95% 70% at 95% 100%, rgba(155, 208, 128, 0.65) 0%, transparent 50%);
-  pointer-events: none;
-  z-index: 0;
-}
-
-@media (max-width: 768px) {
-  .contact::after {
-    height: 24%;
-    background:
-      radial-gradient(ellipse 140% 80% at 10% 100%, rgba(160, 210, 130, 0.7) 0%, transparent 50%),
-      radial-gradient(ellipse 110% 70% at 40% 100%, rgba(175, 218, 138, 0.65) 0%, transparent 48%),
-      radial-gradient(ellipse 130% 75% at 75% 100%, rgba(165, 212, 132, 0.68) 0%, transparent 50%),
-      radial-gradient(ellipse 100% 65% at 100% 100%, rgba(155, 206, 128, 0.6) 0%, transparent 45%);
-  }
 }
 
 .contactContent {
@@ -71,6 +22,24 @@
 
 .contactTitleWrapper {
   margin-bottom: 3rem;
+  text-align: center;
+}
+
+.contactTitle {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 700;
+  line-height: 1.2;
+  color: #fff;
+  margin: 0 0 1rem;
+}
+
+.contactSubtitle {
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  font-weight: 400;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.6);
+  margin: 0;
 }
 
 .contactMain {
@@ -90,13 +59,13 @@
 .emailLink {
   font-size: clamp(2rem, 5vw, 4rem);
   font-weight: 700;
-  color: var(--color-primary);
+  color: #fff;
   text-decoration: none;
   transition: all 0.3s ease;
   display: inline-block;
   letter-spacing: -0.02em;
   position: relative;
-  opacity: 0; /* 초기 상태 - GSAP로 애니메이션 */
+  opacity: 0;
   visibility: visible;
 }
 
@@ -107,33 +76,29 @@
   left: 0;
   width: 100%;
   height: 3px;
-  background: var(--color-accent);
+  background: rgba(255, 255, 255, 0.3);
   transform: scaleX(0);
   transform-origin: left;
   transition: transform 0.3s ease;
 }
 
 .emailLink:hover {
-  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-point-secondary) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: #ccc;
   transform: translateY(-2px);
 }
 
 .emailLink:hover::after {
-  display: none;
+  transform: scaleX(1);
 }
 
 /* 설명 텍스트 */
 .contactText {
   font-size: clamp(1rem, 2vw, 1.25rem);
   line-height: 1.8;
-  color: var(--color-black);
-  opacity: 0.7;
+  color: rgba(255, 255, 255, 0.7);
   max-width: 600px;
   margin: 0;
-  opacity: 0; /* 초기 상태 - GSAP로 애니메이션 */
+  opacity: 0;
   visibility: visible;
 }
 
@@ -144,14 +109,14 @@
   justify-content: center;
   gap: 1.5rem;
   margin-top: 2rem;
-  opacity: 0; /* 초기 상태 - GSAP로 애니메이션 */
+  opacity: 0;
   visibility: visible;
 }
 
 .socialLink {
   display: inline-block;
   transition: all 0.3s ease;
-  opacity: 0.7;
+  opacity: 0.6;
 }
 
 .socialLink:hover {
@@ -164,20 +129,20 @@
   height: 40px;
   object-fit: contain;
   display: block;
+  filter: brightness(0) invert(1);
 }
 
 /* Copyright */
 .copyright {
   margin-top: 2rem;
   padding-top: 1.5rem;
-  border-top: 1px solid rgba(75, 111, 94, 0.18);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
   text-align: center;
 }
 
 .copyright p {
   font-size: 0.875rem;
-  color: var(--color-black);
-  opacity: 0.5;
+  color: rgba(255, 255, 255, 0.4);
   margin: 0;
 }
 
@@ -188,12 +153,12 @@
   gap: 1.5rem;
   margin-top: 2rem;
   padding: 2rem;
-  background: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.05);
   border-radius: 16px;
-  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   width: 100%;
   max-width: 500px;
-  opacity: 0; /* 초기 상태 - GSAP로 애니메이션 */
+  opacity: 0;
   visibility: visible;
 }
 
@@ -207,8 +172,7 @@
 .infoLabel {
   font-size: 0.875rem;
   font-weight: 500;
-  color: var(--color-black);
-  opacity: 0.6;
+  color: rgba(255, 255, 255, 0.5);
   text-transform: uppercase;
   letter-spacing: 0.1em;
 }
@@ -216,7 +180,7 @@
 .infoValue {
   font-size: 1.125rem;
   font-weight: 600;
-  color: var(--color-black);
+  color: #fff;
 }
 
 /* 태블릿 반응형 */
@@ -296,4 +260,3 @@
     font-size: 1rem;
   }
 }
-

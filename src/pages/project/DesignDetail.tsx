@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
-import { Link, useSearchParams } from 'react-router-dom';
+import { Link, useOutletContext, useSearchParams } from 'react-router-dom';
 import detailStyles from './ProjectDetail.module.css';
 import tabStyles from './CursorAIDetail.module.css';
+import type { ProjectDetailOutletContext } from './projectDetailOutletContext';
 
 import americayogaImg from '../../assets/images/americayoga.jpg';
 import americayogaBeforeImg from '../../assets/images/americayoga-before.png';
@@ -98,6 +99,7 @@ function initialTabFromUrl(): string {
 export const DesignDetail = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const [activeId, setActiveId] = useState(initialTabFromUrl);
+  const { projectTabs } = useOutletContext<ProjectDetailOutletContext>() ?? {};
 
   useEffect(() => {
     const p = searchParams.get(TAB_QUERY);
@@ -117,7 +119,9 @@ export const DesignDetail = () => {
   const hasActions = active.siteUrl || active.notionUrl || active.figmaUrl;
 
   return (
-    <main className={detailStyles.detailPage}>
+    <main
+      className={`${detailStyles.detailPage} ${projectTabs ? detailStyles.detailPageTabbed : ''}`}
+    >
       <div className={detailStyles.detailInner}>
         <header className={detailStyles.pageHeader}>
           <Link to="/" className={detailStyles.backLink}>

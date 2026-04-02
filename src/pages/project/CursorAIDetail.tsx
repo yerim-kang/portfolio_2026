@@ -1,7 +1,8 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useOutletContext } from 'react-router-dom';
 import detailStyles from './ProjectDetail.module.css';
 import styles from './CursorAIDetail.module.css';
+import type { ProjectDetailOutletContext } from './projectDetailOutletContext';
 
 import washtowerImg from '../../assets/images/lgwashtower.mp4';
 import openweatherImg from '../../assets/images/openweather.png';
@@ -127,12 +128,15 @@ const tabs: CursorTab[] = [
 ];
 
 export const CursorAIDetail = () => {
+  const { projectTabs } = useOutletContext<ProjectDetailOutletContext>() ?? {};
   const [activeId, setActiveId] = useState(tabs[0].id);
   const active = tabs.find((t) => t.id === activeId) ?? tabs[0];
   const isVideo = active.image.toLowerCase().endsWith('.mp4');
 
   return (
-    <main className={detailStyles.detailPage}>
+    <main
+      className={`${detailStyles.detailPage} ${projectTabs ? detailStyles.detailPageTabbed : ''}`}
+    >
       <div className={detailStyles.detailInner}>
         <header className={detailStyles.pageHeader}>
           <Link to="/" className={detailStyles.backLink}>

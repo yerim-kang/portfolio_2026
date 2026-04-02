@@ -1,0 +1,579 @@
+/* ZeroWay Portfolio Detail - Agency Style */
+
+.portfolioPage {
+  background: #fff;
+  color: #1a1a1a;
+}
+
+/* ===== Hero Section ===== */
+.hero {
+  padding: 8rem 2rem 4rem;
+  background: #fafafa;
+}
+
+/* 상단 프로젝트 탭이 있을 때 헤더·탭 영역만큼 hero 상단 패딩 축소 */
+.portfolioPageTabbed .hero {
+  padding-top: 1.5rem;
+}
+
+.heroContent {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.backLink {
+  display: inline-block;
+  margin-bottom: 2rem;
+  font-size: 0.85rem;
+  color: #666;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.backLink:hover {
+  color: var(--color-primary);
+}
+
+.heroMeta {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.category,
+.year {
+  display: inline-block;
+  padding: 0.4rem 1rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  border-radius: 20px;
+}
+
+.category {
+  background: #1a1a1a;
+  color: #fff;
+}
+
+.year {
+  background: transparent;
+  border: 1px solid #ddd;
+  color: #666;
+}
+
+.heroTitle {
+  font-size: clamp(2rem, 4.2vw, 3.15rem);
+  font-weight: 800;
+  line-height: 1.12;
+  letter-spacing: -0.03em;
+  margin: 0;
+}
+
+.heroSubtitle {
+  display: block;
+  margin-top: 0.5rem;
+  font-size: clamp(1.05rem, 2vw, 1.45rem);
+  font-weight: 400;
+  color: #666;
+  letter-spacing: -0.01em;
+}
+
+/* ===== Hero Visual ===== */
+.heroVisual {
+  width: 100%;
+  background: #f0f0f0;
+}
+
+.heroVideo {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+  max-height: 80vh;
+}
+
+/* ===== Container ===== */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* ===== Overview Section ===== */
+.overview {
+  padding: 6rem 0;
+  border-bottom: 1px solid #eee;
+}
+
+.overviewGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+.overviewLeft {
+  max-width: 480px;
+}
+
+.sectionLabel {
+  display: inline-block;
+  margin-bottom: 1.5rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--color-primary);
+}
+
+.overviewText {
+  font-size: 1.25rem;
+  line-height: 1.8;
+  color: #333;
+}
+
+.overviewRight {
+  padding-top: 0.5rem;
+}
+
+.infoList {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.infoItem {
+  display: flex;
+  gap: 2rem;
+}
+
+.infoItem dt {
+  min-width: 100px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #999;
+}
+
+.infoItem dd {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #333;
+}
+
+.roleDetail {
+  line-height: 1.65;
+}
+
+.roleDevHighlight {
+  font-weight: 800;
+  color: var(--color-primary);
+  letter-spacing: -0.02em;
+}
+
+/* ===== Split Content Sections ===== */
+.problemSection,
+.approachSection {
+  padding: 6rem 0;
+}
+
+.problemSection {
+  background: #fafafa;
+}
+
+/* Approach 섹션 하단 기획 이미지 (AI Health Mate 등) */
+.approachVisual {
+  margin-top: 3.5rem;
+}
+
+.splitContent {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+.splitLeft {
+  position: sticky;
+  top: 8rem;
+}
+
+/* Problem: 왼쪽 제목은 스크롤 시 뷰포트에 고정 (부모에 transform 없음 — GSAP는 오른쪽만 적용) */
+.splitLeftSticky {
+  position: sticky;
+  top: 6rem;
+  align-self: start;
+  max-width: 100%;
+}
+
+.sectionTitle {
+  font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+.splitRight {
+  padding-top: 0.5rem;
+}
+
+.bodyText {
+  font-size: 1.05rem;
+  line-height: 1.9;
+  color: #444;
+  margin: 0 0 1.5rem;
+}
+
+.painPoints {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.painPoints li {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 0.75rem;
+  font-size: 0.95rem;
+  color: #555;
+}
+
+.painPoints li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.55rem;
+  width: 6px;
+  height: 6px;
+  background: var(--color-primary);
+  border-radius: 50%;
+}
+
+/* ===== Result Image Section ===== */
+.resultSection {
+  padding: 4rem 0;
+}
+
+.imageBlock {
+  position: relative;
+}
+
+.imageLabel {
+  display: inline-block;
+  margin-bottom: 1rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #999;
+}
+
+.fullImage {
+  width: 100%;
+  border-radius: 16px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+}
+
+/* ===== Brand Section ===== */
+.brandSection {
+  padding: 6rem 0;
+  background: #1a1a1a;
+  color: #fff;
+}
+
+.brandContent {
+  max-width: 900px;
+}
+
+.brandSection .sectionLabel {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.brandSection .sectionTitle {
+  color: #fff;
+  margin-bottom: 1rem;
+}
+
+.brandSection .bodyText {
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 2rem;
+}
+
+.brandColorsFigure {
+  margin: 0;
+  max-width: 100%;
+}
+
+.brandColorsImage {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.35);
+}
+
+/* ===== Tech Section ===== */
+.techSection {
+  padding: 6rem 0;
+  border-bottom: 1px solid #eee;
+}
+
+.techContent {
+  max-width: 900px;
+}
+
+.techGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.techCategory h4 {
+  margin: 0 0 1rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #999;
+}
+
+.techList {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.techList li {
+  padding: 0.5rem 0;
+  font-size: 0.95rem;
+  color: #333;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.techList li:last-child {
+  border-bottom: none;
+}
+
+/* ===== Features Section ===== */
+.featuresSection {
+  padding: 6rem 0;
+  background: #fafafa;
+}
+
+.featuresGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.featureCard {
+  padding: 2rem;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.featureCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+}
+
+.featureNumber {
+  display: inline-block;
+  margin-bottom: 1rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  letter-spacing: 0.04em;
+}
+
+.featureCard h4 {
+  margin: 0 0 0.75rem;
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+
+.featureCard p {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: #666;
+}
+
+/* ===== CTA Section ===== */
+.ctaSection {
+  padding: 6rem 0;
+  text-align: center;
+  border-top: 1px solid #eee;
+}
+
+.ctaContent {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.ctaTitle {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin: 0 0 2rem;
+}
+
+.ctaButtons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.primaryBtn,
+.secondaryBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 2.5rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-decoration: none;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+}
+
+.primaryBtn {
+  background: #1a1a1a;
+  color: #fff;
+}
+
+.primaryBtn:hover {
+  background: #333;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.secondaryBtn {
+  background: transparent;
+  color: #1a1a1a;
+  border: 2px solid #ddd;
+}
+
+.secondaryBtn:hover {
+  border-color: #1a1a1a;
+  transform: translateY(-2px);
+}
+
+/* ===== Footer ===== */
+.footer {
+  padding: 3rem 0;
+  background: #fafafa;
+  border-top: 1px solid #eee;
+}
+
+.footerLink {
+  font-size: 0.9rem;
+  color: #666;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.footerLink:hover {
+  color: var(--color-primary);
+}
+
+/* ===== Animation Helper ===== */
+.animateUp {
+  will-change: transform, opacity;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 1024px) {
+  .overviewGrid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .splitContent {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .splitLeft,
+  .splitLeftSticky {
+    position: static;
+  }
+
+  .techGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .featuresGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding: 6.5rem 1.5rem 3rem;
+  }
+
+  .portfolioPageTabbed .hero {
+    padding-top: 1.25rem;
+  }
+
+  .container {
+    padding: 0 1.5rem;
+  }
+
+  .heroTitle {
+    font-size: 1.85rem;
+  }
+
+  .heroSubtitle {
+    font-size: 0.95rem;
+  }
+
+  .overview,
+  .problemSection,
+  .approachSection,
+  .brandSection,
+  .techSection,
+  .featuresSection,
+  .ctaSection {
+    padding: 4rem 0;
+  }
+
+  .resultSection {
+    padding: 2rem 0;
+  }
+
+  .overviewText {
+    font-size: 1.1rem;
+  }
+
+  .sectionTitle {
+    font-size: 1.6rem;
+  }
+
+  .infoItem {
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .techGrid {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+
+  .ctaButtons {
+    flex-direction: column;
+  }
+
+  .primaryBtn,
+  .secondaryBtn {
+    width: 100%;
+  }
+}

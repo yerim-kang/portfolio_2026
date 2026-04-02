@@ -1,3 +1,4 @@
+export { ProjectDetailShell } from './ProjectDetailShell';
 export { ZerowayDetail } from './ZerowayDetail';
 export { AIHealthMateDetail } from './AIHealthMateDetail';
 export { BbangsamLandingDetail } from './BbangsamLandingDetail';

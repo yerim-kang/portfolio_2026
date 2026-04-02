@@ -5,9 +5,9 @@
  */
 
 export const StructuredData = () => {
-  // 배포 후 실제 URL로 변경 필요
   const siteUrl = typeof window !== 'undefined' ? window.location.origin : '';
-  const ogImageUrl = siteUrl ? `${siteUrl}/og-image.png` : '';
+  /** public/og-image.jpg — JSON-LD용 절대 URL */
+  const ogImageUrl = siteUrl ? `${siteUrl}/og-image.jpg` : '';
 
   // Person 스키마 (개인 정보)
   const personSchema = {
@@ -45,8 +45,9 @@ export const StructuredData = () => {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
     name: '강예림 포트폴리오',
-    description: '웹 퍼블리셔 강예림의 포트폴리오 사이트. UXUI, 프론트엔드, 반응형 웹 퍼블리싱 프로젝트를 소개합니다.',
+    description: '웹 퍼블리셔 강예림의 포트폴리오 사이트 입니다.',
     url: siteUrl,
+    ...(ogImageUrl ? { image: ogImageUrl } : {}),
     author: {
       '@type': 'Person',
       name: '강예림',

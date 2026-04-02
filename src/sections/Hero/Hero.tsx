@@ -18,7 +18,6 @@ export const Hero = () => {
   const ctaRef = useRef<HTMLAnchorElement>(null);
   const ctaSecondaryRef = useRef<HTMLAnchorElement>(null);
 
-  // 진입 애니메이션
   useGsap(() => {
     const timer = setTimeout(() => {
       if (subtitleRef.current && ctaRef.current) {
@@ -67,7 +66,6 @@ export const Hero = () => {
     return () => clearTimeout(timer);
   }, { dependencies: [] });
 
-  // 스크롤 패럴랙스
   useEffect(() => {
     if (!heroRef.current) return;
     if (typeof ScrollTrigger === 'undefined') return;
@@ -100,24 +98,20 @@ export const Hero = () => {
 
   return (
     <section id="home" ref={heroRef} className={styles.hero}>
-      <div className={styles.heroWatercolor} aria-hidden="true">
-        <span className={styles.skyGlow} />
-        <span className={`${styles.cloud} ${styles.cloud1}`} />
-        <span className={`${styles.cloud} ${styles.cloud2}`} />
-        <span className={`${styles.cloud} ${styles.cloud3}`} />
-        <span className={`${styles.cloud} ${styles.cloud4}`} />
+      <div className={styles.heroDecor} aria-hidden="true">
+        <span className={styles.heroDecorGradient} />
+        <span className={styles.heroDecorGrid} />
+        <span className={`${styles.heroDecorOrb} ${styles.heroDecorOrb1}`} />
+        <span className={`${styles.heroDecorOrb} ${styles.heroDecorOrb2}`} />
+        <span className={`${styles.heroDecorOrb} ${styles.heroDecorOrb3}`} />
+        <span className={styles.heroDecorFrame} />
+        <span className={styles.heroDecorCorner} />
       </div>
-
+      <div className={styles.heroMain}>
       <Container>
         <div className={styles.heroContent}>
           <div className={styles.heroInner}>
             <div className={styles.heroCopy}>
-              <div className={styles.bubbleHeader} aria-hidden>
-                <span className={`${styles.bubbleDot} ${styles.dotClose}`} />
-                <span className={`${styles.bubbleDot} ${styles.dotMin}`} />
-                <span className={`${styles.bubbleDot} ${styles.dotMax}`} />
-              </div>
-
               <div ref={badgeRef} className={styles.heroBadge}>
                 Web Publisher
               </div>
@@ -127,7 +121,10 @@ export const Hero = () => {
                 className={styles.heroTitle}
                 style={{ opacity: 1, visibility: 'visible' }}
               >
-                <span className={styles.heroName}>Yerim&apos;s portfolio</span>
+                <span className={styles.heroName}>
+                  <span className={styles.heroNamePrefix}>Yerim&apos;s </span>
+                  <span className={styles.heroNameHighlight}>Portfolio</span>
+                </span>
               </h1>
 
               <p
@@ -173,10 +170,10 @@ export const Hero = () => {
                 </a>
               </div>
             </div>
-
           </div>
         </div>
       </Container>
+      </div>
 
       <div className={styles.heroAccent} />
 

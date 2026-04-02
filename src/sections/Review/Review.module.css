@@ -1,7 +1,7 @@
 .review {
   position: relative;
   padding: var(--section-padding) 0;
-  background: var(--color-background);
+  background: #fff;
 }
 
 .reviewContent {
@@ -14,13 +14,13 @@
   text-align: center;
   padding: 1rem 1.2rem;
   border-radius: 14px;
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  background: rgba(255, 255, 255, 0.78);
+  border: 1px solid #eee;
+  background: #fafafa;
 }
 
 .reviewSummary strong {
   font-size: 1.2rem;
-  color: var(--color-primary);
+  color: #1a1a1a;
 }
 
 .reviewSummary p {
@@ -41,8 +41,8 @@
 .reviewCard {
   border-radius: 16px;
   padding: 1.1rem;
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  background: rgba(255, 255, 255, 0.86);
+  border: 1px solid #eee;
+  background: #fafafa;
 }
 
 .reviewHeader {

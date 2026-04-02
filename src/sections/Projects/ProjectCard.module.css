@@ -5,23 +5,23 @@
 
 .projectCard {
   position: relative;
-  background: rgba(255, 255, 255, 0.6);
+  background: #fff;
   border-radius: 16px;
   overflow: hidden;
-  backdrop-filter: blur(10px);
+  border: 1px solid #eee;
   transition: all 0.3s ease;
   cursor: pointer;
   height: 100%;
   display: flex;
   flex-direction: column;
-  opacity: 1; /* 기본적으로 보이도록 */
-  visibility: visible; /* 기본적으로 보이도록 */
+  opacity: 1;
+  visibility: visible;
 }
 
 .projectCard:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
-  background: rgba(255, 255, 255, 0.9);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
+  border-color: #ddd;
 }
 
 /* 이미지 영역 */
@@ -52,8 +52,8 @@
   height: 100%;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
-  color: var(--color-white);
+  background: #f5f5f5;
+  color: #999;
   font-size: 3rem;
   font-weight: 700;
   position: absolute;
@@ -119,27 +119,28 @@
 }
 
 .figmaButton {
-  background-color: var(--color-accent);
-  color: var(--color-black);
+  background-color: #fff;
+  color: #1a1a1a;
+  border: 1px solid #fff;
 }
 
 .figmaButton:hover {
-  background-color: var(--color-primary);
-  color: var(--color-white);
+  background-color: #f0f0f0;
+  color: #1a1a1a;
   transform: translateY(-2px);
-  box-shadow: 0 4px 15px rgba(107, 191, 116, 0.36);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
 .siteButton {
-  background-color: var(--color-primary);
-  color: var(--color-white);
+  background-color: #1a1a1a;
+  color: #fff;
 }
 
 .siteButton:hover {
-  background-color: var(--color-accent);
-  color: var(--color-black);
+  background-color: #333;
+  color: #fff;
   transform: translateY(-2px);
-  box-shadow: 0 4px 15px rgba(107, 191, 116, 0.28);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
 .detailButton {
@@ -189,15 +190,10 @@
   font-weight: 700;
   letter-spacing: -0.02em;
   line-height: 1.2;
-  color: #2a5c7f;
-  background: linear-gradient(
-    135deg,
-    rgba(143, 211, 255, 0.28) 0%,
-    rgba(232, 247, 255, 0.92) 100%
-  );
-  border: 1.5px solid rgba(143, 211, 255, 0.7);
+  color: #1a1a1a;
+  background: #f5f5f5;
+  border: 1px solid #ddd;
   border-radius: 999px;
-  box-shadow: 0 2px 10px rgba(95, 170, 222, 0.24);
   opacity: 1;
   vertical-align: middle;
 }
