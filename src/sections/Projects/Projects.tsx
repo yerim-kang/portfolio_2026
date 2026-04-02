@@ -83,7 +83,7 @@ const featuredProjects = [
   },
 ];
 
-/** Cursor AI로 진행한 프로젝트 */
+/** Cursor AI로 진행한 프로젝트 — 법무법인한결 맨 앞, Cursor AI 상세 탭 순서와 동일 */
 const cursorAiProjects = [
   {
     id: 13,
@@ -92,7 +92,7 @@ const cursorAiProjects = [
     tags: ['Wordpress', 'Cursor AI'],
     image: hangyeolImg,
     siteUrl: 'https://mwpdemo64188.mycafe24.com/',
-    detailUrl: '/project/hangyeol-landing',
+    detailUrl: '/project/cursor-ai?tab=hangyeol',
     figmaUrl: '',
   },
   {
@@ -102,7 +102,7 @@ const cursorAiProjects = [
     tags: ['Cursor AI', 'ImageFX'],
     image: washtowerImg,
     siteUrl: 'https://twinwashtower.netlify.app/',
-    detailUrl: '/project/cursor-ai',
+    detailUrl: '/project/cursor-ai?tab=washtower',
     figmaUrl: '',
   },
   {

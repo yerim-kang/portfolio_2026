@@ -1,11 +1,12 @@
-import { useState } from 'react';
-import { Link, useOutletContext } from 'react-router-dom';
+import { useState, useEffect, useCallback } from 'react';
+import { Link, useOutletContext, useSearchParams } from 'react-router-dom';
 import detailStyles from './ProjectDetail.module.css';
 import styles from './CursorAIDetail.module.css';
 import type { ProjectDetailOutletContext } from './projectDetailOutletContext';
 
 import washtowerImg from '../../assets/images/lgwashtower.mp4';
-import openweatherImg from '../../assets/images/openweather.png';
+import hangyeolVideo from '../../assets/images/hangyeol.mp4';
+import openweatherImg from '../../assets/images/weather.png';
 import salarycalculatorImg from '../../assets/images/salarycalculator.png';
 import imageeditorImg from '../../assets/images/imageeditor.png';
 import lottoImg from '../../assets/images/lotto.png';
@@ -27,6 +28,24 @@ type CursorTab = {
 };
 
 const tabs: CursorTab[] = [
+  {
+    id: 'hangyeol',
+    label: '법무법인한결',
+    title: '법무법인 한결 Landing Page',
+    description:
+      '전세사기 피해 상담·소송을 전문으로 하는 법무법인을 소개하는 WordPress 기반 랜딩페이지입니다. Cursor AI를 보조 도구로 활용해 카피·구조 수정 속도를 높였습니다.',
+    period: '2026.02',
+    contribution: '100%',
+    tags: ['WordPress', 'HTML', 'CSS', 'JavaScript', 'Cursor AI'],
+    image: hangyeolVideo,
+    siteUrl: 'https://mwpdemo64188.mycafe24.com/',
+    sections: [
+      {
+        title: '기획 단계',
+        text: '법률 서비스에 필요한 신뢰와 전문성이 먼저 전달되도록 정보 구조와 콘텐츠 흐름을 설계했습니다. 핵심 메시지와 CTA 순서를 정한 뒤 Cursor AI로 카피·레이아웃 초안을 빠르게 반복했습니다.',
+      },
+    ],
+  },
   {
     id: 'washtower',
     label: '세탁기 랜딩',
@@ -127,9 +146,30 @@ const tabs: CursorTab[] = [
   },
 ];
 
+const tabIds = new Set(tabs.map((t) => t.id));
+
 export const CursorAIDetail = () => {
   const { projectTabs } = useOutletContext<ProjectDetailOutletContext>() ?? {};
-  const [activeId, setActiveId] = useState(tabs[0].id);
+  const [searchParams, setSearchParams] = useSearchParams();
+  const tabParam = searchParams.get('tab');
+  const initialId = tabParam && tabIds.has(tabParam) ? tabParam : tabs[0].id;
+  const [activeId, setActiveId] = useState(initialId);
+
+  useEffect(() => {
+    const p = searchParams.get('tab');
+    if (p && tabIds.has(p)) {
+      setActiveId(p);
+    }
+  }, [searchParams]);
+
+  const selectTab = useCallback(
+    (id: string) => {
+      setActiveId(id);
+      setSearchParams({ tab: id }, { replace: true });
+    },
+    [setSearchParams]
+  );
+
   const active = tabs.find((t) => t.id === activeId) ?? tabs[0];
   const isVideo = active.image.toLowerCase().endsWith('.mp4');
 
@@ -164,7 +204,7 @@ export const CursorAIDetail = () => {
                   aria-controls={`panel-${tab.id}`}
                   tabIndex={selected ? 0 : -1}
                   className={`${styles.tab} ${selected ? styles.tabActive : ''}`}
-                  onClick={() => setActiveId(tab.id)}
+                  onClick={() => selectTab(tab.id)}
                 >
                   {tab.label}
                 </button>

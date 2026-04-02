@@ -9,13 +9,12 @@ import { AboutDetail } from './pages/AboutDetail';
 import { StructuredData } from './components/StructuredData';
 import { Header } from './components/Header';
 import { ScrollToTop } from './components/ScrollToTop';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import {
   ProjectDetailShell,
   ZerowayDetail,
   AIHealthMateDetail,
   BbangsamLandingDetail,
-  HangyeolLandingDetail,
   CursorAIDetail,
   DesignDetail,
   TodoListDetail,
@@ -46,7 +45,10 @@ function App() {
             <Route path="zeroway" element={<ZerowayDetail />} />
             <Route path="ai-health-mate" element={<AIHealthMateDetail />} />
             <Route path="bbangsam-landing" element={<BbangsamLandingDetail />} />
-            <Route path="hangyeol-landing" element={<HangyeolLandingDetail />} />
+            <Route
+              path="hangyeol-landing"
+              element={<Navigate to="/project/cursor-ai?tab=hangyeol" replace />}
+            />
             <Route path="cursor-ai" element={<CursorAIDetail />} />
             <Route path="design" element={<DesignDetail />} />
             <Route path="todo-list" element={<TodoListDetail />} />
