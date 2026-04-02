@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
 
-  <!-- OG·canonical: 실제 도메인(ruinoa.com)과 public/og-image.jpg·favicon.ico 기준 -->
+  <!-- OG·canonical: 빌드 시 VITE_SITE_URL(기본 https://ruinoa.com)로 치환 — public/og-image.jpg -->
 
   <!-- ================== 기본 메타 태그 (SEO) ================== -->
   <meta name="title" content="강예림 | 웹 퍼블리셔 포트폴리오 - UXUI · 프론트엔드">
@@ -25,8 +25,10 @@
   <meta property="og:description"
     content="사용자의 니즈를 읽고 구조로 풀어내는 웹 퍼블리셔 강예림의 포트폴리오입니다. HTML, CSS, JavaScript, jQuery, GSAP, Figma 기반 반응형 웹 퍼블리싱을 구현합니다.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://ruinoa.com/">
-  <meta property="og:image" content="https://ruinoa.com/og-image.jpg">
+  <meta property="og:url" content="__SITE_URL__/">
+  <meta property="og:image" content="__SITE_URL__/og-image.jpg">
+  <meta property="og:image:secure_url" content="__SITE_URL__/og-image.jpg">
+  <meta property="og:image:type" content="image/jpeg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="웹 퍼블리셔 강예림 포트폴리오 대표 이미지">
@@ -38,7 +40,7 @@
   <meta name="twitter:title" content="강예림 | 웹 퍼블리셔 포트폴리오 - UXUI · 프론트엔드">
   <meta name="twitter:description"
     content="사용자의 니즈를 읽고 구조로 풀어내는 웹 퍼블리셔 강예림의 포트폴리오. HTML, CSS, React, GSAP, Figma 기반 반응형 웹 퍼블리싱과 UI/UX 구현.">
-  <meta name="twitter:image" content="https://ruinoa.com/og-image.jpg">
+  <meta name="twitter:image" content="__SITE_URL__/og-image.jpg">
   <meta name="twitter:image:alt" content="웹 퍼블리셔 강예림 포트폴리오 대표 이미지">
   <meta name="twitter:site" content="">
   <meta name="twitter:creator" content="">
@@ -49,7 +51,7 @@
   <meta name="distribution" content="global">
   <meta name="rating" content="general">
   <meta name="format-detection" content="telephone=no">
-  <link rel="canonical" href="https://ruinoa.com/">
+  <link rel="canonical" href="__SITE_URL__/">
 
   <!-- ================== 웹앱 및 브라우저 최적화 ================== -->
   <meta name="theme-color" content="#F5F4F0">

@@ -97,7 +97,7 @@ export const AIHealthMateDetail = () => {
                     <span className={styles.roleDevHighlight}>100%</span>
                     {' '}
                     <br />
-                    (단독 수행)
+                    (100% 하드코딩)
                   </dd>
                 </div>
                 <div className={styles.infoItem}>

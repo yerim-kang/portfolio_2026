@@ -92,7 +92,7 @@ export const ZerowayDetail = () => {
                   <dt>Role</dt>
                   <dd className={styles.roleDetail}>
                     기획 30% · 디자인 30% ·{' '}
-                    <span className={styles.roleDevHighlight}>개발 80%</span>
+                    <span className={styles.roleDevHighlight}>개발 80%(하드코딩)</span>
                     {' '}
                     <br />(SCSS mixin, 메인페이지, 지도페이지, 제보하기페이지 담당)
                   </dd>

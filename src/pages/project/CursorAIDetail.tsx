@@ -36,7 +36,7 @@ const tabs: CursorTab[] = [
       '전세사기 피해 상담·소송을 전문으로 하는 법무법인을 소개하는 WordPress 기반 랜딩페이지입니다. Cursor AI를 보조 도구로 활용해 카피·구조 수정 속도를 높였습니다.',
     period: '2026.02',
     contribution: '100%',
-    tags: ['WordPress', 'HTML', 'CSS', 'JavaScript', 'Cursor AI'],
+    tags: ['WordPress', 'Cursor AI'],
     image: hangyeolVideo,
     siteUrl: 'https://mwpdemo64188.mycafe24.com/',
     sections: [
@@ -53,7 +53,7 @@ const tabs: CursorTab[] = [
     description: 'Cursor AI로 하루 만에 기획부터 반응형 랜딩 퍼블리싱까지 완료한 프로젝트입니다.',
     period: '2026.02',
     contribution: '100%',
-    tags: ['HTML', 'CSS', 'JavaScript', 'Cursor AI', 'ImageFX'],
+    tags: ['Cursor AI', 'ImageFX'],
     image: washtowerImg,
     siteUrl: 'https://twinwashtower.netlify.app/',
     sections: [
@@ -67,7 +67,7 @@ const tabs: CursorTab[] = [
     description: 'OpenWeather API를 활용한 모바일 중심 날씨 정보 웹사이트입니다.',
     period: '2026.02',
     contribution: '100%',
-    tags: ['HTML', 'CSS', 'JavaScript', 'Cursor AI', 'OpenWeather API'],
+    tags: ['Cursor AI', 'OpenWeather API'],
     image: openweatherImg,
     siteUrl: 'https://openweatherai.netlify.app/',
     sections: [
@@ -81,7 +81,7 @@ const tabs: CursorTab[] = [
     description: '급여·실수령 등 직장인에게 유용한 계산 기능을 제공하는 웹사이트입니다.',
     period: '2026.02',
     contribution: '100%',
-    tags: ['HTML', 'CSS', 'JavaScript', 'Cursor AI'],
+    tags: ['Cursor AI'],
     image: salarycalculatorImg,
     siteUrl: 'https://salary-calculator01.netlify.app/',
     sections: [
@@ -95,7 +95,7 @@ const tabs: CursorTab[] = [
     description: '이미지 업로드 및 변환 워크플로우를 다루는 웹 프로젝트입니다.',
     period: '2026.02',
     contribution: '100%',
-    tags: ['HTML', 'CSS', 'JavaScript', 'Cursor AI'],
+    tags: ['Cursor AI'],
     image: imageeditorImg,
     siteUrl: 'https://picture-editor01.netlify.app/',
     sections: [
@@ -109,7 +109,7 @@ const tabs: CursorTab[] = [
     description: '랜덤 번호 추천 등 가벼운 인터랙션을 포함한 웹사이트입니다.',
     period: '2026.02',
     contribution: '100%',
-    tags: ['HTML', 'CSS', 'JavaScript', 'Cursor AI'],
+    tags: ['Cursor AI'],
     image: lottoImg,
     siteUrl: 'https://lotto7777.netlify.app/',
     sections: [
@@ -123,7 +123,7 @@ const tabs: CursorTab[] = [
     description: 'Cursor AI와 ImageFX를 활용해 타로 카드 테마의 웹 경험을 구성했습니다.',
     period: '2026.02',
     contribution: '100%',
-    tags: ['HTML', 'CSS', 'JavaScript', 'Cursor AI', 'ImageFX'],
+    tags: ['Cursor AI', 'ImageFX'],
     image: meowTarotImg,
     siteUrl: 'https://meow-tarot.netlify.app',
     sections: [
@@ -137,7 +137,7 @@ const tabs: CursorTab[] = [
     description: '외국인을 위한 한국어 학습·K-컬처 가이드 플랫폼 콘셉트의 웹사이트입니다.',
     period: '2026.02',
     contribution: '100%',
-    tags: ['HTML', 'CSS', 'JavaScript', 'Cursor AI'],
+    tags: ['Cursor AI'],
     image: mykoreahubImg,
     siteUrl: 'https://mykoreahub.netlify.app/',
     sections: [

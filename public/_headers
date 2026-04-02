@@ -1,0 +1,4 @@
+# Netlify: OG 미리보기·크롤러가 이미지를 안정적으로 가져가도록
+/og-image.jpg
+  Cache-Control: public, max-age=604800
+  X-Content-Type-Options: nosniff
