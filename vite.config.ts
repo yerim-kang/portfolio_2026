@@ -13,7 +13,7 @@ export default defineConfig(({ mode }) => {
       {
         name: 'html-site-url',
         transformIndexHtml(html: string) {
-          return html.replaceAll('__SITE_URL__', siteUrl);
+          return html.replaceAll('https://portfolio-test-0402.netlify.app/', '');
         },
       },
     ],
