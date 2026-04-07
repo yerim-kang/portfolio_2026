@@ -57,17 +57,17 @@ const tabs: DesignTab[] = [
     label: '이모티콘',
     title: '이모티콘 제작',
     description:
-      'ImageFX와 Figma를 활용해 캐릭터 이모티콘을 제작하고, OGQ 마켓 등록까지 진행한 프로젝트입니다.',
+      'ImageFX와 Figma를 활용해 캐릭터 이모티콘을 제작하고, OGQ 마켓 등록 후 판매까지 진행한 프로젝트입니다.',
     period: '2026.01',
     contribution: '100%',
-    tags: ['Figma', 'ImageFX'],
+    tags: ['Figma', 'ImageFX', 'ChatGPT'],
     image: emoji1Img,
     notionUrl:
       'https://dog-mandolin-7f7.notion.site/AI-2fd4be4a7f1c8153b14de6524d709b60?source=copy_link',
     figmaUrl:
       'https://www.figma.com/design/4v52vD7YlFsaFocsoQ8WfT/%EC%98%88%EB%A6%BC_%EC%97%B0%EC%8A%B5?node-id=698-2006',
     sections: [
-      { title: '기획 단계', text: '타깃 사용자 감정선에 맞는 캐릭터 콘셉트와 사용 상황을 먼저 정의한 뒤, 세트 구성과 감정 표현 범위를 기획했습니다. 이후 플랫폼 규격에 맞춰 산출물 기준을 정하고 Figma/ImageFX를 조합해 제작 방향을 구체화했습니다.' },
+      { title: '기획 단계', text: '타깃 사용자 감정선에 맞는 캐릭터 콘셉트와 사용 상황을 먼저 정의한 뒤, 세트 구성과 감정 표현 범위를 기획했습니다. 이후 플랫폼 규격에 맞춰 산출물 기준을 정하고 Figma/ImageFX를 조합해 제작 방향을 구체화했고 직접 OGQ마켓에 등록 후 판매까지 진행했습니다.' },
     ],
   },
   {
@@ -109,7 +109,8 @@ export const DesignDetail = () => {
   }, [searchParams]);
 
   const active = tabs.find((t) => t.id === activeId) ?? tabs[0];
-  const isVideo = active.image.toLowerCase().endsWith('.mp4');
+  const pathOnly = active.image.split(/[?#]/)[0] ?? active.image;
+  const isVideo = /\.(mp4|webm|ogg)$/i.test(pathOnly);
 
   const selectTab = (id: string) => {
     setActiveId(id);
@@ -164,24 +165,30 @@ export const DesignDetail = () => {
           aria-labelledby={`design-tab-${active.id}`}
           className={tabStyles.tabPanel}
         >
-          <h2 className={tabStyles.panelTitle}>{active.title}</h2>
+          <div className={tabStyles.panelTitleRow}>
+            <h2 className={tabStyles.panelTitle}>{active.title}</h2>
+            {active.id === 'emoticon' && <span className={tabStyles.titleBadge}>판매중</span>}
+          </div>
           <p className={tabStyles.panelDescription}>{active.description}</p>
 
           {!active.galleryImages && (
             <figure className={detailStyles.heroFigure}>
               {isVideo ? (
                 <video
+                  key={active.id}
                   className={detailStyles.heroImage}
                   src={active.image}
                   autoPlay
                   muted
                   loop
                   playsInline
+                  preload="auto"
                   controls={false}
                   aria-label={`${active.title} 대표 영상`}
                 />
               ) : (
                 <img
+                  key={active.id}
                   className={detailStyles.heroImage}
                   src={active.image}
                   alt={`${active.title} 대표 이미지`}

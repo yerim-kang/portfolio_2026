@@ -1,29 +1,56 @@
-.tabsSpacer {
-  padding-top: 4.5rem;
+/* 프로젝트 상세 — 헤더 docK 안에서 슬라이드 / 터치는 항상 표시 */
+
+.tabsRoot {
+  width: 100%;
+}
+
+/* 데스크톱(정밀 포인터): 기본 접힘 → 네비「Project」호버 시 펼침 */
+.tabsRootHoverMode {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.42s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.tabsRootHoverMode:not(.tabsRootOpen) {
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tabsRootHoverMode {
+    transition-duration: 0.01ms;
+  }
+}
+
+.tabsRootHoverMode.tabsRootOpen {
+  max-height: 5.85rem;
+}
+
+/* 터치·코어스 포인터: 항상 펼침 */
+.tabsRootTouchMode {
+  max-height: none;
+  overflow: visible;
 }
 
 .tabsBar {
-  position: sticky;
-  top: 4.5rem;
-  z-index: 900;
   margin: 0;
-  background: rgba(255, 255, 255, 0.94);
+  padding: 0;
+  background: #fff;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
   backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.07);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
 }
 
 .inner {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0.65rem clamp(1rem, 3vw, 2rem) 0.7rem;
+  padding: 0.7rem clamp(1rem, 3vw, 2rem) 0.72rem;
 }
 
 .list {
   display: flex;
   justify-content: center;
   flex-wrap: nowrap;
-  gap: 0.4rem;
+  gap: 0;
   list-style: none;
   margin: 0;
   padding: 0;
@@ -36,47 +63,67 @@
   height: 4px;
 }
 
+.list li {
+  display: inline-flex;
+  align-items: center;
+}
+
+.list li:not(:last-child)::after {
+  content: '|';
+  margin: 0 0.6rem;
+  color: rgba(0, 0, 0, 0.34);
+  font-size: 0.78rem;
+}
+
 .link {
   display: inline-flex;
   align-items: center;
-  padding: 0.45rem 0.9rem;
-  border-radius: 999px;
-  font-size: 0.8rem;
+  padding: 0;
+  border-radius: 0;
+  font-size: 0.82rem;
   font-weight: 600;
-  color: #4a4a4a;
+  letter-spacing: -0.02em;
+  color: #6b6f67;
   text-decoration: none;
   white-space: nowrap;
-  transition: background 0.2s ease, color 0.2s ease;
   flex-shrink: 0;
+  transition: color 0.2s ease;
 }
 
 .link:hover {
   color: var(--color-primary);
-  background: rgba(143, 209, 74, 0.14);
 }
 
 .linkActive {
-  color: #fff;
-  background: var(--color-primary);
+  color: var(--color-primary-dark);
+  font-weight: 700;
 }
 
 .linkActive:hover {
-  color: #fff;
-  background: var(--color-primary);
-  filter: brightness(1.05);
+  color: var(--color-primary-dark);
 }
 
 @media (max-width: 768px) {
-  .tabsSpacer {
-    padding-top: 4.25rem;
-  }
-
-  .tabsBar {
-    top: 4.25rem;
+  .inner {
+    padding: 0.62rem clamp(0.85rem, 3vw, 1.5rem) 0.64rem;
   }
 
   .link {
     font-size: 0.76rem;
-    padding: 0.4rem 0.75rem;
+  }
+
+  .list li:not(:last-child)::after {
+    margin: 0 0.45rem;
+    font-size: 0.72rem;
+  }
+
+  .tabsRootHoverMode.tabsRootOpen {
+    max-height: 8.5rem;
+  }
+}
+
+@media (max-width: 1023px) {
+  .tabsRoot {
+    display: none;
   }
 }

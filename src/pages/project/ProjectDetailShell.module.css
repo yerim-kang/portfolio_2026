@@ -1,0 +1,17 @@
+/**
+ * 프로젝트 상세 라우트 — 고정 헤더·탭과 본문 사이 인-flow 여백
+ * (마우스 호버형 탭은 본문 위에 겹침 → 데스크톱은 헤더 높이만)
+ */
+
+.shellTopPad {
+  width: 100%;
+  height: calc(4.5rem + 3.35rem);
+  pointer-events: none;
+  flex-shrink: 0;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .shellTopPad {
+    height: 4.5rem;
+  }
+}

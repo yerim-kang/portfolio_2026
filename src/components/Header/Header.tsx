@@ -5,6 +5,9 @@
 
 import { useState, useEffect, useRef } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
+import { ProjectDetailTabs } from '../../pages/project/ProjectDetailTabs';
+import { PROJECT_DETAIL_TAB_ITEMS } from '../../pages/project/projectDetailTabsConfig';
+import { useProjectDetailTabsHover } from '../../pages/project/ProjectDetailTabsContext';
 import styles from './Header.module.css';
 
 export const Header = () => {
@@ -12,7 +15,9 @@ export const Header = () => {
   const navigate = useNavigate();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isMobileProjectOpen, setIsMobileProjectOpen] = useState(false);
   const headerRef = useRef<HTMLElement>(null);
+  const projectTabsCtx = useProjectDetailTabsHover();
 
   useEffect(() => {
     const updateHeaderState = () => {
@@ -20,15 +25,7 @@ export const Header = () => {
         setIsScrolled(true);
         return;
       }
-
-      const heroSection = document.querySelector('#home') as HTMLElement | null;
-      if (!heroSection) {
-        setIsScrolled(window.scrollY > 50);
-        return;
-      }
-
-      const triggerPoint = Math.max(0, heroSection.offsetHeight - 90);
-      setIsScrolled(window.scrollY > triggerPoint);
+      setIsScrolled(window.scrollY > 4);
     };
 
     updateHeaderState();
@@ -54,6 +51,7 @@ export const Header = () => {
     if (!to.startsWith('#')) {
       navigate(to);
       setIsMobileMenuOpen(false);
+      setIsMobileProjectOpen(false);
       return;
     }
 
@@ -65,6 +63,12 @@ export const Header = () => {
     const element = document.querySelector(to);
     if (element) element.scrollIntoView({ behavior: 'smooth' });
     setIsMobileMenuOpen(false);
+    setIsMobileProjectOpen(false);
+  };
+
+  const handleMobileProjectToggle = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    setIsMobileProjectOpen((prev) => !prev);
   };
 
   useEffect(() => {
@@ -81,7 +85,43 @@ export const Header = () => {
     return () => clearTimeout(timer);
   }, [location.pathname, location.state, navigate]);
 
+  useEffect(() => {
+    const handleResizeCloseMobileNav = () => {
+      if (!isMobileMenuOpen) return;
+      setIsMobileMenuOpen(false);
+      setIsMobileProjectOpen(false);
+    };
+
+    window.addEventListener('resize', handleResizeCloseMobileNav);
+    return () => window.removeEventListener('resize', handleResizeCloseMobileNav);
+  }, [isMobileMenuOpen]);
+
+  const projectTabsCloseTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const openProjectTabsMenu = () => {
+    if (projectTabsCloseTimer.current) {
+      clearTimeout(projectTabsCloseTimer.current);
+      projectTabsCloseTimer.current = null;
+    }
+    projectTabsCtx?.setHeaderHovered(true);
+  };
+
+  const scheduleCloseProjectTabsMenu = () => {
+    if (projectTabsCloseTimer.current) clearTimeout(projectTabsCloseTimer.current);
+    projectTabsCloseTimer.current = setTimeout(() => {
+      projectTabsCtx?.setHeaderHovered(false);
+      projectTabsCloseTimer.current = null;
+    }, 160);
+  };
+
+  useEffect(() => {
+    return () => {
+      if (projectTabsCloseTimer.current) clearTimeout(projectTabsCloseTimer.current);
+    };
+  }, []);
+
   return (
+    <div className={styles.headerDock}>
     <header 
       ref={headerRef}
       className={`${styles.header} ${isScrolled || isMobileMenuOpen ? styles.scrolled : ''}`}
@@ -94,16 +134,21 @@ export const Header = () => {
 
         {/* Desktop Navigation */}
         <nav className={styles.nav}>
-          {navItems.map((item) => (
-            <a
-              key={item.to}
-              href={item.to}
-              className={styles.navLink}
-              onClick={(e) => handleNavClick(e, item.to)}
-            >
-              {item.label}
-            </a>
-          ))}
+          {navItems.map((item) => {
+            const isProjectNav = item.to === '/project/zeroway';
+            return (
+              <a
+                key={item.to}
+                href={item.to}
+                className={styles.navLink}
+                onClick={(e) => handleNavClick(e, item.to)}
+                onMouseEnter={isProjectNav ? openProjectTabsMenu : undefined}
+                onMouseLeave={isProjectNav ? scheduleCloseProjectTabsMenu : undefined}
+              >
+                {item.label}
+              </a>
+            );
+          })}
         </nav>
 
         {/* CTA Button */}
@@ -118,27 +163,81 @@ export const Header = () => {
         {/* Mobile Menu Toggle */}
         <button
           className={styles.mobileToggle}
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          aria-label="Toggle menu"
+          onClick={() => {
+            setIsMobileMenuOpen((prev) => {
+              const next = !prev;
+              if (!next) setIsMobileProjectOpen(false);
+              return next;
+            });
+          }}
+          aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
         >
-          <span className={isMobileMenuOpen ? styles.open : ''}></span>
-          <span className={isMobileMenuOpen ? styles.open : ''}></span>
-          <span className={isMobileMenuOpen ? styles.open : ''}></span>
+          {isMobileMenuOpen ? (
+            <span className={styles.mobileToggleClose} aria-hidden>
+              ×
+            </span>
+          ) : (
+            <>
+              <span className={styles.mobileToggleLine}></span>
+              <span className={styles.mobileToggleLine}></span>
+              <span className={styles.mobileToggleLine}></span>
+            </>
+          )}
         </button>
       </div>
 
       {/* Mobile Menu */}
       <nav className={`${styles.mobileNav} ${isMobileMenuOpen ? styles.open : ''}`}>
-        {navItems.map((item) => (
-          <a
-            key={item.to}
-            href={item.to}
-            className={styles.mobileNavLink}
-            onClick={(e) => handleNavClick(e, item.to)}
-          >
-            {item.label}
-          </a>
-        ))}
+        {navItems.map((item) => {
+          const isProjectNav = item.to === '/project/zeroway';
+          return (
+            <div key={item.to} className={styles.mobileNavGroup}>
+              {isProjectNav ? (
+                <button
+                  type="button"
+                  className={`${styles.mobileNavLink} ${styles.mobileProjectTrigger} ${isMobileProjectOpen ? styles.mobileProjectTriggerOpen : ''}`}
+                  onClick={handleMobileProjectToggle}
+                  aria-expanded={isMobileProjectOpen}
+                  aria-controls="mobile-project-submenu"
+                >
+                  <span>{item.label}</span>
+                  <span
+                    className={`${styles.mobileProjectChevron} ${isMobileProjectOpen ? styles.mobileProjectChevronOpen : ''}`}
+                    aria-hidden
+                  >
+                    ▾
+                  </span>
+                </button>
+              ) : (
+                <a
+                  href={item.to}
+                  className={`${styles.mobileNavLink} ${item.label === 'Contact' ? styles.mobileNavLinkWithDivider : ''}`}
+                  onClick={(e) => handleNavClick(e, item.to)}
+                >
+                  {item.label}
+                </a>
+              )}
+              {isProjectNav && isMobileProjectOpen && (
+                <div
+                  id="mobile-project-submenu"
+                  className={styles.mobileSubmenu}
+                  aria-label="Project 상세 메뉴"
+                >
+                  {PROJECT_DETAIL_TAB_ITEMS.map((tabItem) => (
+                    <a
+                      key={tabItem.to}
+                      href={tabItem.to}
+                      className={styles.mobileSubmenuLink}
+                      onClick={(e) => handleNavClick(e, tabItem.to)}
+                    >
+                      {tabItem.label}
+                    </a>
+                  ))}
+                </div>
+              )}
+            </div>
+          );
+        })}
         <a
           href="#contact"
           className={styles.mobileCtaButton}
@@ -148,6 +247,14 @@ export const Header = () => {
         </a>
       </nav>
     </header>
+
+    {!isMobileMenuOpen && (
+      <ProjectDetailTabs
+        onTabsMouseEnter={openProjectTabsMenu}
+        onTabsMouseLeave={scheduleCloseProjectTabsMenu}
+      />
+    )}
+    </div>
   );
 };
 

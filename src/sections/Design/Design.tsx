@@ -21,9 +21,10 @@ import banner3Img from '../../assets/images/banner3.png';
 const designs = [
   {
     id: 1,
-    title: '이모티콘제작',
-    description: 'ImageFx와 Figma를 이용하여 이모티콘 제작 및 OGQ마켓에 등록',
-    tags: ['Figma', 'ImageFx'],
+    title: '이모티콘 제작',
+    titleBadge: '판매중',
+    description: 'ImageFx와 Figma를 이용하여 이모티콘 제작 및 OGQ마켓에 등록 후 판매까지 진행',
+    tags: ['Figma', 'ImageFX', 'ChatGPT'],
     image: hamsterImg,
     detailUrl: '/project/design?tab=emoticon',
     figmaUrl: 'https://www.figma.com/design/4v52vD7YlFsaFocsoQ8WfT/%EC%98%88%EB%A6%BC_%EC%97%B0%EC%8A%B5?node-id=698-2006',

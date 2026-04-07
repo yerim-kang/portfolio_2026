@@ -6,44 +6,44 @@
   
   <!-- 메인 페이지 -->
   <url>
-    <loc>https://yourportfolio.netlify.app/</loc>
-    <lastmod>2025-01-27</lastmod>
+    <loc>https://ruinoa.com/</loc>
+    <lastmod>2026-04-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   
-  <!-- 섹션 앵커 링크 (배포 후 실제 URL로 변경 필요) -->
+  <!-- 섹션 앵커 -->
   <url>
-    <loc>https://yourportfolio.netlify.app/#about</loc>
-    <lastmod>2025-01-27</lastmod>
+    <loc>https://ruinoa.com/#about</loc>
+    <lastmod>2026-04-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   
   <url>
-    <loc>https://yourportfolio.netlify.app/#skills</loc>
-    <lastmod>2025-01-27</lastmod>
+    <loc>https://ruinoa.com/#skills</loc>
+    <lastmod>2026-04-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   
   <url>
-    <loc>https://yourportfolio.netlify.app/#projects</loc>
-    <lastmod>2025-01-27</lastmod>
+    <loc>https://ruinoa.com/#projects</loc>
+    <lastmod>2026-04-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   
   <url>
-    <loc>https://yourportfolio.netlify.app/#design</loc>
-    <lastmod>2025-01-27</lastmod>
+    <loc>https://ruinoa.com/#design</loc>
+    <lastmod>2026-04-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   
   <url>
-    <loc>https://yourportfolio.netlify.app/#contact</loc>
-    <lastmod>2025-01-27</lastmod>
+    <loc>https://ruinoa.com/#contact</loc>
+    <lastmod>2026-04-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>

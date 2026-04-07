@@ -1,46 +1,77 @@
-/* Cursor AI 상세 — 탭 메뉴 (선 위주 톤과 맞춤) */
+/* Cursor AI / Design 상세 — 탭 (심플 pill, 위치 고정) */
 
 .tabBar {
   margin: 1.5rem 0 0;
-  padding-bottom: 0;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 0.55rem 0.65rem;
+  background: #fff;
+  border-radius: 50px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.04);
 }
 
 .tabScroll {
   display: flex;
   flex-wrap: wrap;
-  gap: 0;
-  margin: 0 -0.25rem;
+  gap: 0.8rem;
+  align-items: center;
+  justify-content: center;
   overflow-x: auto;
+  overflow-y: hidden;
   -webkit-overflow-scrolling: touch;
-  scrollbar-width: thin;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.tabScroll::-webkit-scrollbar {
+  display: none;
 }
 
 .tab {
   flex: 0 0 auto;
-  margin: 0 0.25rem;
-  padding: 0.65rem 0.85rem;
+  margin: 0;
+  padding: 0.48rem 1.5rem;
+  min-height: 0;
   font-family: inherit;
-  font-size: 0.78rem;
+  font-size: 0.8125rem;
   font-weight: 600;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  color: #666;
-  background: none;
-  border: none;
-  border-bottom: 2px solid transparent;
+  letter-spacing: -0.02em;
+  text-transform: none;
+  color: var(--color-primary-dark);
+  background: var(--color-white);
+  border: 0.5px solid #ddd;
+  border-radius: 50px;
   cursor: pointer;
-  transition: color 0.2s ease, border-color 0.2s ease;
-  white-space: nowrap;
 }
 
-.tab:hover {
-  color: var(--color-primary);
+.tab:hover:not(.tabActive) {
+  color: var(--color-primary-dark);
+  background: #fff;
+  /* border-color: rgba(var(--color-primary-rgb), 0.3); */
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.04);
+}
+
+.tab:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+.tab:active:not(.tabActive) {
+  opacity: 0.92;
 }
 
 .tabActive {
-  color: var(--color-primary);
-  border-bottom-color: var(--color-primary);
+  color: #fff;
+  font-weight: 700;
+  background: var(--color-black);
+  border-color: rgba(0, 0, 0, 0.06);
+  box-shadow: 0 2px 10px rgba(var(--color-primary-rgb), 0.25);
+}
+
+.tabActive:hover {
+  color: #fff;
+  background: var(--color-black);
+  filter: brightness(1.03);
+  border-color: rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
 }
 
 .tabPanel {
@@ -63,6 +94,27 @@
   letter-spacing: -0.02em;
   margin: 0 0 0.75rem;
   padding-top: 0.25rem;
+}
+
+.panelTitleRow {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  flex-wrap: wrap;
+}
+
+.titleBadge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.16rem 0.5rem;
+  border-radius: 50px;
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+  color: #fff;
+  background: var(--color-secondary);
 }
 
 .panelDescription {
@@ -99,7 +151,7 @@
   margin: 0;
   padding: 0.7rem;
   border: 1px solid rgba(0, 0, 0, 0.08);
-  border-radius: 12px;
+  border-radius: 16px;
   background: rgba(255, 255, 255, 0.78);
 }
 
@@ -117,17 +169,24 @@
 }
 
 @media (max-width: 768px) {
+  .tabBar {
+    padding: 0.45rem 0.5rem;
+    border-radius: 999px;
+  }
+
   .tabScroll {
     flex-wrap: nowrap;
-    padding-bottom: 0.25rem;
-    margin: 0 -0.5rem;
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
+    justify-content: flex-start;
+    gap: 0.3rem;
+    padding-bottom: 0.1rem;
+    scroll-snap-type: x proximity;
+    width: 100%;
   }
 
   .tab {
-    font-size: 0.72rem;
-    padding: 0.55rem 0.65rem;
+    font-size: 0.76rem;
+    padding: 0.42rem 0.85rem;
+    scroll-snap-align: start;
   }
 
   .beforeAfterGrid {

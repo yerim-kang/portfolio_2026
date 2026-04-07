@@ -28,7 +28,8 @@ export const ProjectDetailLayout = ({
   sections,
 }: ProjectDetailLayoutProps) => {
   const { projectTabs } = useOutletContext<ProjectDetailOutletContext>() ?? {};
-  const isVideo = image.toLowerCase().endsWith('.mp4');
+  const pathOnly = image.split(/[?#]/)[0] ?? image;
+  const isVideo = /\.(mp4|webm|ogg)$/i.test(pathOnly);
 
   return (
     <main
@@ -46,6 +47,7 @@ export const ProjectDetailLayout = ({
             muted
             loop
             playsInline
+            preload="auto"
             controls={false}
             aria-label={`${title} 대표 영상`}
           />

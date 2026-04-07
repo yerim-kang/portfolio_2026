@@ -18,6 +18,7 @@ import sassImg from '../../assets/images/sass.png';
 import bootstrapImg from '../../assets/images/bootstrap.png';
 import cursorImg from '../../assets/images/cursor.png';
 import photoshopImg from '../../assets/images/photoshop.png';
+import wordpressImg from '../../assets/images/wordpress.png';
 
 const skills = [
   { name: 'Figma', icon: figmaImg },
@@ -27,6 +28,7 @@ const skills = [
   { name: 'jQuery', icon: jqueryImg },
   { name: 'SASS', icon: sassImg },
   { name: 'Bootstrap', icon: bootstrapImg },
+  { name: 'WordPress', icon: wordpressImg },
   { name: 'Cursor', icon: cursorImg },
   { name: 'Photoshop', icon: photoshopImg },
 ];

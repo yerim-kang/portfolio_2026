@@ -94,7 +94,7 @@ export const Hero = () => {
     if (contactSection) contactSection.scrollIntoView({ behavior: 'smooth' });
   };
 
-  const skills = ['HTML', 'CSS', 'JavaScript', 'React', 'GSAP', 'Figma'];
+  const skills = ['HTML', 'CSS', 'JavaScript', 'GSAP', 'Figma'];
 
   return (
     <section id="home" ref={heroRef} className={styles.hero}>

@@ -42,8 +42,20 @@ h2,
 h3,
 h4,
 h5,
-h6 {
+h6,
+li,
+dd,
+dt,
+label,
+span,
+a,
+td,
+th {
   overflow-wrap: break-word;
+}
+
+table {
+  word-wrap: break-word;
 }
 
 button {

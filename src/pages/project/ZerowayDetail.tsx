@@ -2,8 +2,8 @@ import { useRef, useEffect } from 'react';
 import { Link, useOutletContext } from 'react-router-dom';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import zerowayVideo from '../../assets/images/zeroway.mp4';
-import zerowayImg from '../../assets/images/zeroway.jpg';
+import mockup2Video from '../../assets/images/mockup2.mp4';
+import zerowayPlan2Img from '../../assets/images/zeroway_plan2.jpg';
 import colorsReferenceImg from '../../assets/images/Colors.jpg';
 import styles from './ZerowayDetail.module.css';
 import type { ProjectDetailOutletContext } from './projectDetailOutletContext';
@@ -55,16 +55,18 @@ export const ZerowayDetail = () => {
         </div>
       </section>
 
-      {/* Hero Visual */}
+      {/* Hero Visual — 페이지 .container와 동일 폭, 영상은 영역 100% × 100% */}
       <section className={styles.heroVisual}>
-        <video
-          className={styles.heroVideo}
-          src={zerowayVideo}
-          autoPlay
-          muted
-          loop
-          playsInline
-        />
+        <div className={styles.heroVisualInner}>
+          <video
+            className={styles.heroVideo}
+            src={mockup2Video}
+            autoPlay
+            muted
+            loop
+            playsInline
+          />
+        </div>
       </section>
 
       {/* Project Overview */}
@@ -94,7 +96,10 @@ export const ZerowayDetail = () => {
                     기획 30% · 디자인 30% ·{' '}
                     <span className={styles.roleDevHighlight}>개발 80%(하드코딩)</span>
                     {' '}
-                    <br />(SCSS mixin, 메인페이지, 지도페이지, 제보하기페이지 담당)
+                    <br />
+                    <span className={styles.roleKvHighlight}>
+                      (SCSS mixin, 메인 페이지, 지도 페이지, 제보하기 페이지 담당)
+                    </span>
                   </dd>
                 </div>
                 <div className={styles.infoItem}>
@@ -102,6 +107,46 @@ export const ZerowayDetail = () => {
                   <dd>Web</dd>
                 </div>
               </dl>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Tech Stack — Overview 직후 */}
+      <section className={styles.techSection}>
+        <div className={styles.container}>
+          <div className={`${styles.techContent} ${styles.animateUp}`}>
+            <h2 className={styles.sectionLabel}>Tech Stack</h2>
+            <div className={styles.techGrid}>
+              <div className={styles.techCategory}>
+                <h4>Frontend</h4>
+                <ul className={styles.techList}>
+                  <li>HTML5</li>
+                  <li>CSS3 / Sass</li>
+                  <li>JavaScript</li>
+                  <li>jQuery</li>
+                </ul>
+              </div>
+              <div className={styles.techCategory}>
+                <h4>Animation</h4>
+                <ul className={styles.techList}>
+                  <li>GSAP</li>
+                  <li>AOS</li>
+                  <li>Swiper</li>
+                </ul>
+              </div>
+              <div className={styles.techCategory}>
+                <h4>Design</h4>
+                <ul className={styles.techList}>
+                  <li>Figma</li>
+                </ul>
+              </div>
+              <div className={styles.techCategory}>
+                <h4>Deploy</h4>
+                <ul className={styles.techList}>
+                  <li>Netlify</li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
@@ -177,56 +222,6 @@ export const ZerowayDetail = () => {
         </div>
       </section>
 
-      {/* Tech Stack */}
-      <section className={styles.techSection}>
-        <div className={styles.container}>
-          <div className={`${styles.techContent} ${styles.animateUp}`}>
-            <h2 className={styles.sectionLabel}>Tech Stack</h2>
-            <div className={styles.techGrid}>
-              <div className={styles.techCategory}>
-                <h4>Frontend</h4>
-                <ul className={styles.techList}>
-                  <li>HTML5</li>
-                  <li>CSS3 / Sass</li>
-                  <li>JavaScript</li>
-                  <li>jQuery</li>
-                </ul>
-              </div>
-              <div className={styles.techCategory}>
-                <h4>Animation</h4>
-                <ul className={styles.techList}>
-                  <li>GSAP</li>
-                  <li>AOS</li>
-                  <li>Swiper</li>
-                </ul>
-              </div>
-              <div className={styles.techCategory}>
-                <h4>Design</h4>
-                <ul className={styles.techList}>
-                  <li>Figma</li>
-                </ul>
-              </div>
-              <div className={styles.techCategory}>
-                <h4>Deploy</h4>
-                <ul className={styles.techList}>
-                  <li>Netlify</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Result Image */}
-      <section className={styles.resultSection}>
-        <div className={styles.container}>
-          <div className={`${styles.imageBlock} ${styles.animateUp}`}>
-            <span className={styles.imageLabel}>Result</span>
-            <img src={zerowayImg} alt="ZeroWay 완성 화면" className={styles.fullImage} />
-          </div>
-        </div>
-      </section>
-
       {/* Key Features */}
       <section className={styles.featuresSection}>
         <div className={styles.container}>
@@ -250,6 +245,22 @@ export const ZerowayDetail = () => {
               <h4>제보하기</h4>
               <p>사용자가 새로운 매장 정보를 직접 제보할 수 있는 참여형 기능</p>
             </article>
+          </div>
+        </div>
+      </section>
+
+      {/* Result Image */}
+      <section className={styles.resultSection}>
+        <div className={styles.container}>
+          <div className={`${styles.imageBlock} ${styles.animateUp}`}>
+            <span className={styles.imageLabel}>Result</span>
+            {/* <img src={zerowayImg} alt="ZeroWay 완성 화면" className={styles.fullImage} /> */}
+            <img
+              src={zerowayPlan2Img}
+              alt="ZeroWay 결과·기획 참고 화면"
+              className={styles.fullImage}
+              loading="lazy"
+            />
           </div>
         </div>
       </section>

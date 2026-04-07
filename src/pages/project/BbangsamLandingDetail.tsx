@@ -2,8 +2,7 @@ import { useRef, useEffect } from 'react';
 import { Link, useOutletContext } from 'react-router-dom';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import bbangsamVideo from '../../assets/images/bbangsam.mp4';
-import bbangsamImg from '../../assets/images/bbangsam.jpg';
+import mockup3Video from '../../assets/images/Mockup3.mp4';
 import bbangsamPlan1Img from '../../assets/images/bbangsam_plan1.jpg';
 import bbangsamPlan2Img from '../../assets/images/bbangsam_plan2.jpg';
 import styles from './ZerowayDetail.module.css';
@@ -60,14 +59,16 @@ export const BbangsamLandingDetail = () => {
       </section>
 
       <section className={styles.heroVisual}>
-        <video
-          className={styles.heroVideo}
-          src={bbangsamVideo}
-          autoPlay
-          muted
-          loop
-          playsInline
-        />
+        <div className={styles.heroVisualInner}>
+          <video
+            className={styles.heroVideo}
+            src={mockup3Video}
+            autoPlay
+            muted
+            loop
+            playsInline
+          />
+        </div>
       </section>
 
       <section className={styles.overview}>
@@ -77,7 +78,7 @@ export const BbangsamLandingDetail = () => {
               <h2 className={styles.sectionLabel}>Overview</h2>
               <p className={styles.overviewText}>
                 스마트폰 구매·문의 전환을 목표로 한 단일 페이지 랜딩입니다.
-                혜택과 제품 정보가 한 흐름으로 읽히도록 정보 구조를 잡고, 모바일 우선으로 반응형 퍼블리싱을
+                혜택과 제품 정보가 한 흐름으로 읽히도록 정보 구조를 잡고, 반응형 퍼블리싱을
                 진행했습니다.
               </p>
             </div>
@@ -106,6 +107,44 @@ export const BbangsamLandingDetail = () => {
                   <dd>Web</dd>
                 </div>
               </dl>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className={styles.techSection}>
+        <div className={styles.container}>
+          <div className={`${styles.techContent} ${styles.animateUp}`}>
+            <h2 className={styles.sectionLabel}>Tech Stack</h2>
+            <div className={styles.techGrid}>
+              <div className={styles.techCategory}>
+                <h4>Frontend</h4>
+                <ul className={styles.techList}>
+                  <li>HTML5</li>
+                  <li>CSS3</li>
+                  <li>JavaScript</li>
+                  <li>jQuery</li>
+                </ul>
+              </div>
+              <div className={styles.techCategory}>
+                <h4>Interaction</h4>
+                <ul className={styles.techList}>
+                  <li>Swiper</li>
+                  <li>AOS</li>
+                </ul>
+              </div>
+              <div className={styles.techCategory}>
+                <h4>Design</h4>
+                <ul className={styles.techList}>
+                  <li>Figma</li>
+                </ul>
+              </div>
+              <div className={styles.techCategory}>
+                <h4>Deploy</h4>
+                <ul className={styles.techList}>
+                  <li>Netlify</li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
@@ -158,17 +197,6 @@ export const BbangsamLandingDetail = () => {
               </p>
             </div>
           </div>
-          <div className={`${styles.approachVisual} ${styles.animateUp}`}>
-            <figure className={styles.imageBlock}>
-              <span className={styles.imageLabel}>Approach</span>
-              <img
-                src={bbangsamPlan2Img}
-                alt="휴대폰 랜딩 정보 구조·전환 흐름 참고"
-                className={styles.fullImage}
-                loading="lazy"
-              />
-            </figure>
-          </div>
         </div>
       </section>
 
@@ -179,68 +207,16 @@ export const BbangsamLandingDetail = () => {
             <h3 className={styles.sectionTitle}>프로모션에 맞는 비주얼 톤</h3>
             <p className={styles.bodyText}>
               통신·단말 프로모션에 어울리도록 가독성 높은 타이포와 대비감을 유지하고,
-              혜택 강조 영역에 시선이 머무르도록 포인트 컬러와 여백 균형을 맞췄습니다. 아래는 랜딩 키비주얼과
-              톤앤매너를 정리한 참고 화면입니다.
+              혜택 강조 영역에 시선이 머무르도록 포인트 컬러와 여백 균형을 맞췄습니다. 아래는 스타일가이드입니다.
             </p>
             <figure className={styles.brandColorsFigure}>
               <img
                 src={bbangsamPlan1Img}
-                alt="빵삼텔레콤 랜딩 브랜드·키비주얼 참고"
+                alt="빵삼텔레콤 랜딩 스타일가이드"
                 className={styles.brandColorsImage}
                 loading="lazy"
               />
             </figure>
-          </div>
-        </div>
-      </section>
-
-      <section className={styles.techSection}>
-        <div className={styles.container}>
-          <div className={`${styles.techContent} ${styles.animateUp}`}>
-            <h2 className={styles.sectionLabel}>Tech Stack</h2>
-            <div className={styles.techGrid}>
-              <div className={styles.techCategory}>
-                <h4>Frontend</h4>
-                <ul className={styles.techList}>
-                  <li>HTML5</li>
-                  <li>CSS3</li>
-                  <li>JavaScript</li>
-                  <li>jQuery</li>
-                </ul>
-              </div>
-              <div className={styles.techCategory}>
-                <h4>Interaction</h4>
-                <ul className={styles.techList}>
-                  <li>Swiper</li>
-                  <li>AOS</li>
-                </ul>
-              </div>
-              <div className={styles.techCategory}>
-                <h4>Design</h4>
-                <ul className={styles.techList}>
-                  <li>Figma</li>
-                </ul>
-              </div>
-              <div className={styles.techCategory}>
-                <h4>Deploy</h4>
-                <ul className={styles.techList}>
-                  <li>Netlify</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className={styles.resultSection}>
-        <div className={styles.container}>
-          <div className={`${styles.imageBlock} ${styles.animateUp}`}>
-            <span className={styles.imageLabel}>Result</span>
-            <img
-              src={bbangsamImg}
-              alt="휴대폰 랜딩 완성 화면"
-              className={styles.fullImage}
-            />
           </div>
         </div>
       </section>
@@ -267,6 +243,20 @@ export const BbangsamLandingDetail = () => {
               <h4>후기 · 문의 CTA</h4>
               <p>신뢰 요소 후 문의·신청으로 이어지는 하단 전환 구간 마감</p>
             </article>
+          </div>
+        </div>
+      </section>
+
+      <section className={styles.resultSection}>
+        <div className={styles.container}>
+          <div className={`${styles.imageBlock} ${styles.animateUp}`}>
+            <span className={styles.imageLabel}>Result</span>
+            <img
+              src={bbangsamPlan2Img}
+              alt="휴대폰 랜딩 정보 구조·전환 흐름 참고"
+              className={styles.fullImage}
+              loading="lazy"
+            />
           </div>
         </div>
       </section>

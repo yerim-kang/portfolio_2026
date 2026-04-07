@@ -9,10 +9,12 @@ import styles from './ProjectCard.module.css';
 interface Project {
   id: number;
   title: string;
+  /** 타이틀 우측 소형 배지 텍스트 */
+  titleBadge?: string;
   description: string;
   /** 있으면 본문 아래 줄바꿈 후 배지 형태로 강조 표시 */
   descriptionHighlight?: string;
-  /** 상세페이지용 — 메인 카드에는 표시하지 않음 */
+  /** 기술 스택 — 메인 카드에 뱃지로 표시 */
   tags?: string[];
   image: string;
   detailUrl: string;
@@ -82,7 +84,10 @@ export const ProjectCard = ({ project }: ProjectCardProps) => {
 
       {/* 카드 정보 */}
       <div className={styles.cardInfo}>
-        <h3 className={styles.cardTitle}>{project.title}</h3>
+        <div className={styles.cardTitleRow}>
+          <h3 className={styles.cardTitle}>{project.title}</h3>
+          {project.titleBadge && <span className={styles.titleBadge}>{project.titleBadge}</span>}
+        </div>
         <p className={styles.cardDescription}>
           {project.description}
           {project.descriptionHighlight && (
@@ -92,6 +97,17 @@ export const ProjectCard = ({ project }: ProjectCardProps) => {
             </>
           )}
         </p>
+        {project.tags && project.tags.length > 0 && (
+          <div className={styles.techStackBlock}>
+            <ul className={styles.techStack} aria-label={`${project.title} 사용 기술`}>
+              {project.tags.map((tag, idx) => (
+                <li key={`${project.id}-${idx}-${tag}`} className={styles.techBadge}>
+                  {tag}
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
       </div>
     </div>
   );

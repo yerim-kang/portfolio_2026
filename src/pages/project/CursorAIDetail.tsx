@@ -4,9 +4,9 @@ import detailStyles from './ProjectDetail.module.css';
 import styles from './CursorAIDetail.module.css';
 import type { ProjectDetailOutletContext } from './projectDetailOutletContext';
 
-import washtowerImg from '../../assets/images/lgwashtower.mp4';
-import hangyeolVideo from '../../assets/images/hangyeol.mp4';
-import openweatherImg from '../../assets/images/weather.png';
+import washtowerImg from '../../assets/images/Mockup5.mp4';
+import hangyeolVideo from '../../assets/images/Mockup4.mp4';
+import openweatherImg from '../../assets/images/weather.jpg';
 import salarycalculatorImg from '../../assets/images/salarycalculator.png';
 import imageeditorImg from '../../assets/images/imageeditor.png';
 import lottoImg from '../../assets/images/lotto.png';
@@ -34,7 +34,7 @@ const tabs: CursorTab[] = [
     title: '법무법인 한결 Landing Page',
     description:
       '전세사기 피해 상담·소송을 전문으로 하는 법무법인을 소개하는 WordPress 기반 랜딩페이지입니다. Cursor AI를 보조 도구로 활용해 카피·구조 수정 속도를 높였습니다.',
-    period: '2026.02',
+    period: '2주',
     contribution: '100%',
     tags: ['WordPress', 'Cursor AI'],
     image: hangyeolVideo,
@@ -51,7 +51,7 @@ const tabs: CursorTab[] = [
     label: '세탁기 랜딩',
     title: '세탁기 Landing Page',
     description: 'Cursor AI로 하루 만에 기획부터 반응형 랜딩 퍼블리싱까지 완료한 프로젝트입니다.',
-    period: '2026.02',
+    period: '2025.12.31',
     contribution: '100%',
     tags: ['Cursor AI', 'ImageFX'],
     image: washtowerImg,
@@ -65,13 +65,13 @@ const tabs: CursorTab[] = [
     label: '날씨',
     title: '날씨 모바일용 Website',
     description: 'OpenWeather API를 활용한 모바일 중심 날씨 정보 웹사이트입니다.',
-    period: '2026.02',
+    period: '2026.01.06',
     contribution: '100%',
     tags: ['Cursor AI', 'OpenWeather API'],
     image: openweatherImg,
     siteUrl: 'https://openweatherai.netlify.app/',
     sections: [
-      { title: '기획 단계', text: '모바일에서 즉시 날씨 정보를 확인할 수 있도록 현재 날씨 → 추가 정보 → 예보 순으로 정보 우선순위를 정했습니다. API 응답 데이터를 사용자 언어로 쉽게 읽히게 매핑하는 흐름을 먼저 설계하고 구현했습니다.' },
+      { title: '기획 단계', text: '모바일에서 즉시 날씨 정보를 확인할 수 있도록 OpenWeather API를 끌어와 Cursor AI를 활용해 날씨 사이트 제작하였습니다.' },
     ],
   },
   {
@@ -79,7 +79,7 @@ const tabs: CursorTab[] = [
     label: '계산기',
     title: '직장인 계산기 Website',
     description: '급여·실수령 등 직장인에게 유용한 계산 기능을 제공하는 웹사이트입니다.',
-    period: '2026.02',
+    period: '2일',
     contribution: '100%',
     tags: ['Cursor AI'],
     image: salarycalculatorImg,
@@ -93,7 +93,7 @@ const tabs: CursorTab[] = [
     label: '이미지변환',
     title: '이미지변환기 Website',
     description: '이미지 업로드 및 변환 워크플로우를 다루는 웹 프로젝트입니다.',
-    period: '2026.02',
+    period: '2일',
     contribution: '100%',
     tags: ['Cursor AI'],
     image: imageeditorImg,
@@ -106,14 +106,14 @@ const tabs: CursorTab[] = [
     id: 'lotto',
     label: '로또',
     title: '로또 번호 추천 Website',
-    description: '랜덤 번호 추천 등 가벼운 인터랙션을 포함한 웹사이트입니다.',
-    period: '2026.02',
+    description: '수학자의 확률로직을 기반으로 한 로또 번호 추천 웹사이트입니다.',
+    period: '2일',
     contribution: '100%',
     tags: ['Cursor AI'],
     image: lottoImg,
     siteUrl: 'https://lotto7777.netlify.app/',
     sections: [
-      { title: '기획 단계', text: '단순한 기능이라도 반복 사용이 자연스럽도록 입력 부담 없는 인터랙션을 목표로 기획했습니다. 버튼 액션 이후 결과가 즉시 갱신되고 재시도가 쉬운 구조로 사용자 흐름을 단순화했습니다.' },
+      { title: '기획 단계', text: '로또 API를 활용해 회차별 당첨 데이터 크롤링 후 Cursor AI를 활용해 수학자의 확률·계산 로직을 기반으로 번호 추천 프로그램 설계 하였고 그 프로그램을 기반으로 로또 번호 추천 사이트 제작하였습니다.' },
     ],
   },
   {
@@ -121,7 +121,7 @@ const tabs: CursorTab[] = [
     label: '타로',
     title: '타로카드 Website',
     description: 'Cursor AI와 ImageFX를 활용해 타로 카드 테마의 웹 경험을 구성했습니다.',
-    period: '2026.02',
+    period: '3일',
     contribution: '100%',
     tags: ['Cursor AI', 'ImageFX'],
     image: meowTarotImg,
@@ -135,7 +135,7 @@ const tabs: CursorTab[] = [
     label: 'My Korea Hub',
     title: 'My Korea Hub Website',
     description: '외국인을 위한 한국어 학습·K-컬처 가이드 플랫폼 콘셉트의 웹사이트입니다.',
-    period: '2026.02',
+    period: '2일',
     contribution: '100%',
     tags: ['Cursor AI'],
     image: mykoreahubImg,
@@ -147,6 +147,12 @@ const tabs: CursorTab[] = [
 ];
 
 const tabIds = new Set(tabs.map((t) => t.id));
+
+/** Vite 번들 URL은 보통 *.mp4 이지만, 쿼리/해시가 붙는 경우도 대비 */
+function isVideoAssetUrl(url: string): boolean {
+  const pathOnly = url.split(/[?#]/)[0] ?? url;
+  return /\.(mp4|webm|ogg)$/i.test(pathOnly);
+}
 
 export const CursorAIDetail = () => {
   const { projectTabs } = useOutletContext<ProjectDetailOutletContext>() ?? {};
@@ -171,7 +177,7 @@ export const CursorAIDetail = () => {
   );
 
   const active = tabs.find((t) => t.id === activeId) ?? tabs[0];
-  const isVideo = active.image.toLowerCase().endsWith('.mp4');
+  const isVideo = isVideoAssetUrl(active.image);
 
   return (
     <main
@@ -225,17 +231,20 @@ export const CursorAIDetail = () => {
           <figure className={detailStyles.heroFigure}>
             {isVideo ? (
               <video
+                key={active.id}
                 className={detailStyles.heroImage}
                 src={active.image}
                 autoPlay
                 muted
                 loop
                 playsInline
+                preload="auto"
                 controls={false}
                 aria-label={`${active.title} 대표 영상`}
               />
             ) : (
               <img
+                key={active.id}
                 className={detailStyles.heroImage}
                 src={active.image}
                 alt={`${active.title} 대표 이미지`}

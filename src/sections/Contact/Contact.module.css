@@ -129,7 +129,9 @@
   height: 40px;
   object-fit: contain;
   display: block;
-  filter: brightness(0) invert(1);
+  /* --color-primary-soft(#e6ffc8) 톤에 맞춘 아이콘 컬러 */
+  filter: brightness(0) saturate(100%) invert(93%) sepia(24%) saturate(603%) hue-rotate(34deg)
+    brightness(104%) contrast(98%);
 }
 
 /* Copyright */

@@ -2,7 +2,7 @@ import { useRef, useEffect } from 'react';
 import { Link, useOutletContext } from 'react-router-dom';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import hangyeolVideo from '../../assets/images/hangyeol.mp4';
+import hangyeolVideo from '../../assets/images/Mockup4.mp4';
 import hangyeolImg from '../../assets/images/hangyeol.jpg';
 import hangyeolBeforeImg from '../../assets/images/hangyeol_before.png';
 import styles from './ZerowayDetail.module.css';

@@ -74,6 +74,7 @@ const skillGroups = [
       { name: 'jQuery', icon: jqueryImg },
       { name: 'Sass', icon: sassImg },
       { name: 'Bootstrap', icon: bootstrapImg },
+      { name: 'WordPress', icon: wordpressImg },
     ],
   },
   {
@@ -104,7 +105,6 @@ const skillGroups = [
     items: [
       { name: 'GitHub', icon: githubImg },
       { name: 'Slack', icon: slackImg },
-      { name: 'WordPress', icon: wordpressImg },
       { name: 'Netlify', icon: netlifyImg },
       { name: 'Notion', icon: notionImg },
     ],
@@ -179,7 +179,9 @@ export const AboutDetail = () => {
             </div>
             <div className={styles.profileInfo}>
               <span className={styles.badge}>Web Publisher</span>
-              <h1 className={styles.name}>강예림</h1>
+              <h1 className={styles.name}>
+                <span className="mona12-kr mona12-bold">강예림</span>
+              </h1>
               <p className={styles.intro}>
                 사용자의 요구를 읽을 줄 아는 디자이너이자 웹퍼블리셔입니다.
                 <br />

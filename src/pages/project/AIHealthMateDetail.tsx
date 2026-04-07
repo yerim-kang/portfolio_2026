@@ -2,7 +2,7 @@ import { useRef, useEffect } from 'react';
 import { Link, useOutletContext } from 'react-router-dom';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import aihealthmateVideo from '../../assets/images/aihealthmate.mp4';
+import mockup1Video from '../../assets/images/Mockup1.mp4';
 import aihealthmateResultImg from '../../assets/images/aihealthmate_plan3.jpg';
 import aihealthmatePlanImg from '../../assets/images/aihealthmate_plan1.jpg';
 import aihealthmatePlan2Img from '../../assets/images/aihealthmate_plan2.jpg';
@@ -60,14 +60,16 @@ export const AIHealthMateDetail = () => {
       </section>
 
       <section className={styles.heroVisual}>
-        <video
-          className={styles.heroVideo}
-          src={aihealthmateVideo}
-          autoPlay
-          muted
-          loop
-          playsInline
-        />
+        <div className={styles.heroVisualInner}>
+          <video
+            className={styles.heroVideo}
+            src={mockup1Video}
+            autoPlay
+            muted
+            loop
+            playsInline
+          />
+        </div>
       </section>
 
       <section className={styles.overview}>
@@ -105,6 +107,46 @@ export const AIHealthMateDetail = () => {
                   <dd>Web</dd>
                 </div>
               </dl>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className={styles.techSection}>
+        <div className={styles.container}>
+          <div className={`${styles.techContent} ${styles.animateUp}`}>
+            <h2 className={styles.sectionLabel}>Tech Stack</h2>
+            <div className={styles.techGrid}>
+              <div className={styles.techCategory}>
+                <h4>Frontend</h4>
+                <ul className={styles.techList}>
+                  <li>HTML5</li>
+                  <li>CSS3 / Sass</li>
+                  <li>JavaScript</li>
+                  <li>jQuery</li>
+                </ul>
+              </div>
+              <div className={styles.techCategory}>
+                <h4>UI Framework</h4>
+                <ul className={styles.techList}>
+                  <li>Bootstrap</li>
+                </ul>
+              </div>
+              <div className={styles.techCategory}>
+                <h4>Animation</h4>
+                <ul className={styles.techList}>
+                  <li>GSAP</li>
+                  <li>AOS</li>
+                  <li>Swiper</li>
+                </ul>
+              </div>
+              <div className={styles.techCategory}>
+                <h4>Design / Deploy</h4>
+                <ul className={styles.techList}>
+                  <li>Figma</li>
+                  <li>Netlify</li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
@@ -179,7 +221,7 @@ export const AIHealthMateDetail = () => {
             <p className={styles.bodyText}>
               건강·의료 계열 서비스에 맞게 차분하고 신뢰감 있는 팔레트와 여백감을 유지하고,
               포인트 컬러로 생동감과 디지털 헬스 이미지를 보완했습니다. 아래는 기획·디자인 단계에서 정리한
-              컬러 및 무드 보드입니다.
+              컬러 및 스타일가이드입니다.
             </p>
             <figure className={styles.brandColorsFigure}>
               <img
@@ -189,59 +231,6 @@ export const AIHealthMateDetail = () => {
                 loading="lazy"
               />
             </figure>
-          </div>
-        </div>
-      </section>
-
-      <section className={styles.techSection}>
-        <div className={styles.container}>
-          <div className={`${styles.techContent} ${styles.animateUp}`}>
-            <h2 className={styles.sectionLabel}>Tech Stack</h2>
-            <div className={styles.techGrid}>
-              <div className={styles.techCategory}>
-                <h4>Frontend</h4>
-                <ul className={styles.techList}>
-                  <li>HTML5</li>
-                  <li>CSS3 / Sass</li>
-                  <li>JavaScript</li>
-                  <li>jQuery</li>
-                </ul>
-              </div>
-              <div className={styles.techCategory}>
-                <h4>UI Framework</h4>
-                <ul className={styles.techList}>
-                  <li>Bootstrap</li>
-                </ul>
-              </div>
-              <div className={styles.techCategory}>
-                <h4>Animation</h4>
-                <ul className={styles.techList}>
-                  <li>GSAP</li>
-                  <li>AOS</li>
-                  <li>Swiper</li>
-                </ul>
-              </div>
-              <div className={styles.techCategory}>
-                <h4>Design / Deploy</h4>
-                <ul className={styles.techList}>
-                  <li>Figma</li>
-                  <li>Netlify</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className={styles.resultSection}>
-        <div className={styles.container}>
-          <div className={`${styles.imageBlock} ${styles.animateUp}`}>
-            <span className={styles.imageLabel}>Result</span>
-            <img
-              src={aihealthmateResultImg}
-              alt="AI Health Mate 결과 화면"
-              className={styles.fullImage}
-            />
           </div>
         </div>
       </section>
@@ -268,6 +257,19 @@ export const AIHealthMateDetail = () => {
               <h4>뉴스 · 문의</h4>
               <p>최신 정보와 문의 흐름을 하단에 두어 탐색 마지막에 행동을 유도</p>
             </article>
+          </div>
+        </div>
+      </section>
+
+      <section className={styles.resultSection}>
+        <div className={styles.container}>
+          <div className={`${styles.imageBlock} ${styles.animateUp}`}>
+            <span className={styles.imageLabel}>Result</span>
+            <img
+              src={aihealthmateResultImg}
+              alt="AI Health Mate 결과 화면"
+              className={styles.fullImage}
+            />
           </div>
         </div>
       </section>

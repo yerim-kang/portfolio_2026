@@ -10,6 +10,7 @@ import { StructuredData } from './components/StructuredData';
 import { Header } from './components/Header';
 import { ScrollToTop } from './components/ScrollToTop';
 import { Routes, Route, Navigate } from 'react-router-dom';
+import { ProjectDetailTabsProvider } from './pages/project/ProjectDetailTabsContext';
 import {
   ProjectDetailShell,
   ZerowayDetail,
@@ -27,6 +28,7 @@ function App() {
     <>
       <ScrollToTop />
       <StructuredData />
+      <ProjectDetailTabsProvider>
       <div 
         className="App" 
         style={{ 
@@ -55,6 +57,7 @@ function App() {
           </Route>
         </Routes>
       </div>
+      </ProjectDetailTabsProvider>
     </>
   );
 }
