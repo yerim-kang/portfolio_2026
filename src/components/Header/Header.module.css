@@ -250,9 +250,9 @@
 }
 
 .mobileCtaButton:hover {
-  background: var(--color-accent);
+  background: var(--color-primary-soft);
   color: var(--color-black);
-  box-shadow: 0 4px 15px rgba(47, 158, 143, 0.28);
+  box-shadow: 0 4px 15px rgba(47, 158, 75, 0.28);
 }
 
 /* Tablet & Mobile */

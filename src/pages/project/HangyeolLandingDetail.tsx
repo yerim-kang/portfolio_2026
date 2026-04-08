@@ -217,6 +217,12 @@ export const HangyeolLandingDetail = () => {
                   <li>콘텐츠 운영·수정 대응</li>
                 </ul>
               </div>
+              <div className={styles.techCategory}>
+                <h4>Image</h4>
+                <ul className={styles.techList}>
+                  <li>ImageFX</li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>

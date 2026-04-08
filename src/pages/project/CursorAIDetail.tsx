@@ -21,6 +21,7 @@ type CursorTab = {
   period: string;
   contribution: string;
   tags: string[];
+  imageTags?: string[];
   image: string;
   siteUrl: string;
   figmaUrl?: string;
@@ -37,6 +38,7 @@ const tabs: CursorTab[] = [
     period: '2주',
     contribution: '100%',
     tags: ['WordPress', 'Cursor AI'],
+    imageTags: ['ImageFX'],
     image: hangyeolVideo,
     siteUrl: 'https://mwpdemo64188.mycafe24.com/',
     sections: [
@@ -53,7 +55,8 @@ const tabs: CursorTab[] = [
     description: 'Cursor AI로 하루 만에 기획부터 반응형 랜딩 퍼블리싱까지 완료한 프로젝트입니다.',
     period: '2025.12.31',
     contribution: '100%',
-    tags: ['Cursor AI', 'ImageFX'],
+    tags: ['Cursor AI'],
+    imageTags: ['ImageFX'],
     image: washtowerImg,
     siteUrl: 'https://twinwashtower.netlify.app/',
     sections: [
@@ -67,7 +70,7 @@ const tabs: CursorTab[] = [
     description: 'OpenWeather API를 활용한 모바일 중심 날씨 정보 웹사이트입니다.',
     period: '2026.01.06',
     contribution: '100%',
-    tags: ['Cursor AI', 'OpenWeather API'],
+    tags: ['Cursor AI'],
     image: openweatherImg,
     siteUrl: 'https://openweatherai.netlify.app/',
     sections: [
@@ -123,7 +126,8 @@ const tabs: CursorTab[] = [
     description: 'Cursor AI와 ImageFX를 활용해 타로 카드 테마의 웹 경험을 구성했습니다.',
     period: '3일',
     contribution: '100%',
-    tags: ['Cursor AI', 'ImageFX'],
+    tags: ['Cursor AI'],
+    imageTags: ['ImageFX'],
     image: meowTarotImg,
     siteUrl: 'https://meow-tarot.netlify.app',
     sections: [
@@ -280,6 +284,18 @@ export const CursorAIDetail = () => {
                   ))}
                 </ul>
               </li>
+              {active.imageTags && active.imageTags.length > 0 && (
+                <li className={detailStyles.summaryItem}>
+                  <strong>Image</strong>
+                  <ul className={detailStyles.techList} role="list" aria-label="이미지 도구">
+                    {active.imageTags.map((tag, index) => (
+                      <li key={`img-${tag}-${index}`} className={detailStyles.techTag}>
+                        {tag}
+                      </li>
+                    ))}
+                  </ul>
+                </li>
+              )}
             </ul>
           </section>
 

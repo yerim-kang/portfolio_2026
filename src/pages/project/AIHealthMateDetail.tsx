@@ -147,6 +147,12 @@ export const AIHealthMateDetail = () => {
                   <li>Netlify</li>
                 </ul>
               </div>
+              <div className={styles.techCategory}>
+                <h4>Image</h4>
+                <ul className={styles.techList}>
+                  <li>Midjourney</li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>

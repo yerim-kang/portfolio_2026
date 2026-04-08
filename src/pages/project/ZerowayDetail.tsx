@@ -142,6 +142,13 @@ export const ZerowayDetail = () => {
                 </ul>
               </div>
               <div className={styles.techCategory}>
+                <h4>AI</h4>
+                <ul className={styles.techList}>
+                  <li>Gemini</li>
+                  <li>Midjourney</li>
+                </ul>
+              </div>
+              <div className={styles.techCategory}>
                 <h4>Deploy</h4>
                 <ul className={styles.techList}>
                   <li>Netlify</li>

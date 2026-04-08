@@ -22,6 +22,7 @@ type DesignTab = {
   period: string;
   contribution: string;
   tags: string[];
+  imageTags?: string[];
   image: string;
   siteUrl?: string;
   notionUrl?: string;
@@ -42,6 +43,7 @@ const tabs: DesignTab[] = [
     period: '2026.01.05 ~ 2026.01.23',
     contribution: '100%',
     tags: ['Figma'],
+    imageTags: ['Midjourney', 'ImageFX'],
     image: americayogaImg,
     beforeImage: americayogaBeforeImg,
     afterImage: americayogaAfterImg,
@@ -60,7 +62,8 @@ const tabs: DesignTab[] = [
       'ImageFX와 Figma를 활용해 캐릭터 이모티콘을 제작하고, OGQ 마켓 등록 후 판매까지 진행한 프로젝트입니다.',
     period: '2026.01',
     contribution: '100%',
-    tags: ['Figma', 'ImageFX', 'ChatGPT'],
+    tags: ['Figma', 'ChatGPT'],
+    imageTags: ['ImageFX'],
     image: emoji1Img,
     notionUrl:
       'https://dog-mandolin-7f7.notion.site/AI-2fd4be4a7f1c8153b14de6524d709b60?source=copy_link',
@@ -78,6 +81,7 @@ const tabs: DesignTab[] = [
     period: '2026.01',
     contribution: '100%',
     tags: ['Figma'],
+    imageTags: ['ImageFX'],
     image: banner1Img,
     galleryImages: [banner1Img, banner2Img, banner3Img],
     notionUrl:
@@ -255,6 +259,18 @@ export const DesignDetail = () => {
                   ))}
                 </ul>
               </li>
+              {active.imageTags && active.imageTags.length > 0 && (
+                <li className={detailStyles.summaryItem}>
+                  <strong>Image</strong>
+                  <ul className={detailStyles.techList} role="list" aria-label="이미지 도구">
+                    {active.imageTags.map((tag, index) => (
+                      <li key={`img-${tag}-${index}`} className={detailStyles.techTag}>
+                        {tag}
+                      </li>
+                    ))}
+                  </ul>
+                </li>
+              )}
             </ul>
           </section>
 

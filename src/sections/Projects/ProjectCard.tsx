@@ -16,6 +16,10 @@ interface Project {
   descriptionHighlight?: string;
   /** 기술 스택 — 메인 카드에 뱃지로 표시 */
   tags?: string[];
+  /** AI 도구 — 기술 스택 아래 별도 행 (라벨: AI) */
+  aiTags?: string[];
+  /** 이미지 생성 도구 — AI 행 아래 별도 행 (라벨: Image) */
+  imageTags?: string[];
   image: string;
   detailUrl: string;
 }
@@ -102,6 +106,30 @@ export const ProjectCard = ({ project }: ProjectCardProps) => {
             <ul className={styles.techStack} aria-label={`${project.title} 사용 기술`}>
               {project.tags.map((tag, idx) => (
                 <li key={`${project.id}-${idx}-${tag}`} className={styles.techBadge}>
+                  {tag}
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+        {project.aiTags && project.aiTags.length > 0 && (
+          <div className={styles.aiTagBlock}>
+            <span className={styles.aiTagLabel}>Image</span>
+            <ul className={styles.aiTagList} aria-label={`${project.title} AI 도구`}>
+              {project.aiTags.map((tag, idx) => (
+                <li key={`${project.id}-ai-${idx}-${tag}`} className={styles.aiTagBadge}>
+                  {tag}
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+        {project.imageTags && project.imageTags.length > 0 && (
+          <div className={styles.aiTagBlock}>
+            <span className={styles.aiTagLabel}>Image</span>
+            <ul className={styles.aiTagList} aria-label={`${project.title} 이미지 도구`}>
+              {project.imageTags.map((tag, idx) => (
+                <li key={`${project.id}-img-${idx}-${tag}`} className={styles.aiTagBadge}>
                   {tag}
                 </li>
               ))}
